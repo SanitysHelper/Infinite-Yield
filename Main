@@ -53,3 +53,13 @@ end
 warn("Loaded Plugins")
 wait(1)
 loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+for i,v in pairs(listfiles("IY Plugins")) do
+	if not table.find(readplugins(), v) and v ~= "NIL" then
+		addplugin(v)
+	elseif v == "NIL" then
+		warn("[101] Null instance...")
+	else
+		warn("[1] Already Loaded", v)
+	end
+end
+warn("Loaded Plugins (again...)")
