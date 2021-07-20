@@ -5,8 +5,6 @@ function loadgithub(file)
 	writefile("IY Plugins/"..file, game:HttpGet("https://raw.githubusercontent.com/SanitysHelper/Infinite-Yield/main/Plugins/"..file))
 	warn("Downloaded "..file)
 end
-loadgithub("testing.iy")
-loadgithub("NinjaSimAdmin.iy")
 
 HttpService = game:GetService("HttpService")
 local added = 
@@ -38,6 +36,9 @@ if not isfolder("IY Plugins Trash") then
 	makefolder("IY Plugins")
 	print("[1] made new folder")
 end
+
+loadgithub("testing.iy")
+loadgithub("NinjaSimAdmin.iy")
 
 warn("[1] Loading plugins...")
 
