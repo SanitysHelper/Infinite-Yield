@@ -22,9 +22,13 @@ function addplugin(plugin)
 end
 
 function readplugins()
-	local text = readfile("IY_FE.iy")
-	local table1 = HttpService:JSONDecode(text)
-	return table1["PluginsTable"] or {"NIL"}
+	if isfile("IY_FE.iy") then
+		local text = readfile("IY_FE.iy")
+		local table1 = HttpService:JSONDecode(text)
+		return table1["PluginsTable"] or {"NIL"}
+	else
+		return {"NIL"}
+	end
 end
 
 if not isfolder("IY Plugins") then
