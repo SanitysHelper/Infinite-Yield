@@ -51,4 +51,5 @@ for i,v in pairs(listfiles("IY Plugins")) do
 	end
 end
 warn("Loaded Plugins")
+wait(1)
 loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
