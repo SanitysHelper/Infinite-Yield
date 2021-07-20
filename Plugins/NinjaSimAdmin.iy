@@ -29,7 +29,7 @@ local Plugin = {
             ["Description"] = "Kills a player",
             ["Aliases"] = {"nkill","ninjakill"},
             ["Function"] = function(args,speaker)
-		local players = getPlayer(args[1], speaker)
+		local players = getPlayer(args[2], speaker)
 		for i,v in pairs(players) do
 		plrs = (Players[v].Name)
 		LocalPlayer = game.Players.LocalPlayer.Name
