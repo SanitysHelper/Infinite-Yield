@@ -51,8 +51,12 @@ for i,v in pairs(listfiles("IY Plugins")) do
 		addplugin(v)
 	elseif v == "NIL" then
 		warn("[101] Null instance...")
-	else
+	elseif readplugins() ~= "NIL" then
 		warn("[1] Already Loaded", v)
+	else
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+		wait(5)
+		game:GetService("TeleportService"):Teleport(game.GameId)
 	end
 end
 warn("Loaded Plugins")
