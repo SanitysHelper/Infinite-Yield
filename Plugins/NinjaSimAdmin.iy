@@ -1,0 +1,1668 @@
+local Plugin = {
+    ["PluginName"] = "Ninja simulator admin",
+    ["PluginDescription"] = "Commands for ninja simulator",
+    ["Commands"] = {
+	     ["knockback"] = {	--Ninja Sim
+	    ["ListName"] = "knockback [player] [force] [time]",
+	    ["Description"] = "Knocks back a player",
+	    ["Aliases"] = {"kback,knockb,kb"},
+	    ["Function"] = function(args,speaker)
+		local players = getPlayer(args[1], speaker)
+		for i,v in pairs(players) do
+		plrs = (Players[v].Name)
+		LocalPlayer = game.Players.LocalPlayer.Name
+		if plrs == LocalPlayer then
+		print(LocalPlayer, 'why would you want to kill yourself you dumb twat')
+		else
+		if plrs == LocalPlayer then
+		print(LocalPlayer, 'why would you want to kill yourself you dumb twat')
+		else
+		game.ReplicatedStorage.Remotes.Knockback:InvokeServer(game.Workspace:FindFirstChild(plrs).Humanoid, args[2], args[3])
+		game.ReplicatedStorage.Remotes.Damage:InvokeServer(game.Workspace:FindFirstChild(plrs).Humanoid, "punch")
+	    end
+	    end
+		end
+		end
+},
+         ["nkill"] = { 		--Ninja Sim
+            ["ListName"] = "nkill [player]",
+            ["Description"] = "Kills a player",
+            ["Aliases"] = {"nkill","ninjakill"},
+            ["Function"] = function(args,speaker)
+		local players = getPlayer(args[1], speaker)
+		for i,v in pairs(players) do
+		plrs = (Players[v].Name)
+		LocalPlayer = game.Players.LocalPlayer.Name
+		if plrs == LocalPlayer then
+		print(LocalPlayer, 'why would you want to kill yourself you dumb twat')
+		else
+		if plrs == LocalPlayer then
+		print(LocalPlayer, 'why would you want to kill yourself you dumb twat')
+		else
+		if plrs == LocalPlayer then
+		print(LocalPlayer, 'why would you want to kill yourself you dumb twat')
+		else
+		game.ReplicatedStorage.Remotes.Damage:InvokeServer(game.Workspace:FindFirstChild(plrs).Humanoid, "spirit")
+		game.ReplicatedStorage.Remotes.Damage:InvokeServer(game.Workspace:FindFirstChild(plrs).Humanoid, "spirit")
+		game.ReplicatedStorage.Remotes.Damage:InvokeServer(game.Workspace:FindFirstChild(plrs).Humanoid, "spirit")
+		game.ReplicatedStorage.Remotes.Damage:InvokeServer(game.Workspace:FindFirstChild(plrs).Humanoid, "spirit")
+		game.ReplicatedStorage.Remotes.Damage:InvokeServer(game.Workspace:FindFirstChild(plrs).Humanoid, "spirit")
+		game.ReplicatedStorage.Remotes.Damage:InvokeServer(game.Workspace:FindFirstChild(plrs).Humanoid, "spirit")
+		game.ReplicatedStorage.Remotes.Damage:InvokeServer(game.Workspace:FindFirstChild(plrs).Humanoid, "spirit")
+		game.ReplicatedStorage.Remotes.Damage:InvokeServer(game.Workspace:FindFirstChild(plrs).Humanoid, "spirit")
+		end
+		end
+		end
+		end
+		end
+        },
+		 ["modpunch"] = {	--Ninja Sim
+    ["ListName"] = "modpunch / npunch / mp [force] [time]",
+    ["Description"] = "Mods your punches so it can fling",
+    ["Aliases"] = {"mp, npunch"},
+    ["Function"] = function(args,speaker)
+        f = args[1]
+		t = args[2]
+		game.Players.LocalPlayer.PlayerGui.Punch.Configuration.Air_Time.Value = t
+		game.Players.LocalPlayer.PlayerGui.Punch.Configuration.Knock_Force.Value = f
+    end
+},
+		 ["ncrash"] = {		--Ninja Sim
+    ["ListName"] = "ncrash [crashes the server]",
+    ["Description"] = "crashes a server",
+    ["Aliases"] = {"ncrash,nc,"},
+    ["Function"] = function(args,speaker)
+for i = 1,50 do
+local a = game:GetService('RunService').Stepped:connect(function()
+	for i = 0,25 do
+local Event = game:GetService("ReplicatedStorage").Remotes.FixChar
+Event:FireServer()
+ execCmd("inf^0.001^ncrash") 
+end
+end)
+end
+ execCmd("ncrash",speaker) 
+wait() 
+ execCmd("ncrash",speaker)
+wait() 
+ execCmd("ncrash",speaker)  
+ wait(0.5)
+ execCmd("ncrash",speaker) 
+wait(0.5)
+ execCmd("ncrash",speaker)  
+ wait(0.5)
+ execCmd("ncrash",speaker) 
+wait(0.5)
+ execCmd("ncrash",speaker)  
+ wait(0.5)
+ execCmd("ncrash",speaker)  
+ wait(0.5)
+ execCmd("ncrash",speaker)  
+ wait(0.5)
+ execCmd("ncrash",speaker)  
+ wait(0.5)
+ execCmd("ncrash",speaker) 
+wait(0.5)
+ execCmd("ncrash",speaker)  
+ wait(0.5)
+ execCmd("ncrash",speaker) 
+wait(0.5)
+ execCmd("ncrash",speaker)  
+ wait(0.5)
+ execCmd("ncrash",speaker)  
+ wait(0.5)
+ execCmd("ncrash",speaker)  
+ wait(0.5)
+ execCmd("ncrash",speaker)  
+ wait(0.5)
+ execCmd("ncrash",speaker) 
+wait(0.5)
+ execCmd("ncrash",speaker)  
+ wait(0.5)
+ execCmd("ncrash",speaker)  
+ 
+    end
+},
+		 ["fireallclickdetectors"] = {	--Fires All Click Detectors
+    ["ListName"] = "fireallclickdetectors [time]",
+    ["Description"] = "Fires all click detectors",
+    ["Aliases"] = {"firedetectors,firecds"},
+    ["Function"] = function(args,speaker)
+	if args[1] then
+for i,v in pairs(workspace:GetDescendants()) do
+if v:IsA("ClickDetector") then
+fireclickdetector(v)
+wait(args[1])
+end
+end
+	else
+for i,v in pairs(workspace:GetDescendants()) do
+if v:IsA("ClickDetector") then
+fireclickdetector(v)
+end
+end
+end
+    end
+},
+		 ["removecooldown"] = {	--Deletes Waits In Any Script
+    ["ListName"] = "removecooldown [remove waits]",
+    ["Description"] = "Fires all click detectors",
+    ["Aliases"] = {"removewait,rw"},
+    ["Function"] = function(args,speaker)
+--[[
+IronBrew:tm: obfuscation; Version 2.7.2
+]]
+return(function(madebyJakekill871vouchorbad_IllIlllllllIIIllIlIlIlI,madebyJakekill871vouchorbad_IllIlIIllIIlI,madebyJakekill871vouchorbad_IllIlIIllIIlI)local madebyJakekill871vouchorbad_lIIllllllIlIlIlIlIIIlI=string.char;local madebyJakekill871vouchorbad_lIlllllIlllllIIlIlllIIIII=string.sub;local madebyJakekill871vouchorbad_IIlIlllI=table.concat;local madebyJakekill871vouchorbad_IlllIIlIIIIIIIIII=math.ldexp;local madebyJakekill871vouchorbad_lIllllIlIll=getfenv or function()return _ENV end;local madebyJakekill871vouchorbad_llIIIllIl=select;local madebyJakekill871vouchorbad_IlllIIII=unpack or table.unpack;local madebyJakekill871vouchorbad_IIlIIlIIlIIllIIIIllIIIII=tonumber;local function madebyJakekill871vouchorbad_lIlIlllIl(madebyJakekill871vouchorbad_lllllIIIlIllIllIIIllIlIll)local madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll,madebyJakekill871vouchorbad_IllIlIll,madebyJakekill871vouchorbad_IlllIllll="","",{}local madebyJakekill871vouchorbad_IlllIIII=256;local madebyJakekill871vouchorbad_lIIIIllIllIIlI={}for madebyJakekill871vouchorbad_IllIlIIllIIlI=0,madebyJakekill871vouchorbad_IlllIIII-1 do madebyJakekill871vouchorbad_lIIIIllIllIIlI[madebyJakekill871vouchorbad_IllIlIIllIIlI]=madebyJakekill871vouchorbad_lIIllllllIlIlIlIlIIIlI(madebyJakekill871vouchorbad_IllIlIIllIIlI)end;local madebyJakekill871vouchorbad_IllIlIIllIIlI=1;local function madebyJakekill871vouchorbad_IllIlllllllIIIllIlIlIlI()local madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll=madebyJakekill871vouchorbad_IIlIIlIIlIIllIIIIllIIIII(madebyJakekill871vouchorbad_lIlllllIlllllIIlIlllIIIII(madebyJakekill871vouchorbad_lllllIIIlIllIllIIIllIlIll,madebyJakekill871vouchorbad_IllIlIIllIIlI,madebyJakekill871vouchorbad_IllIlIIllIIlI),36)madebyJakekill871vouchorbad_IllIlIIllIIlI=madebyJakekill871vouchorbad_IllIlIIllIIlI+1;local madebyJakekill871vouchorbad_IllIlIll=madebyJakekill871vouchorbad_IIlIIlIIlIIllIIIIllIIIII(madebyJakekill871vouchorbad_lIlllllIlllllIIlIlllIIIII(madebyJakekill871vouchorbad_lllllIIIlIllIllIIIllIlIll,madebyJakekill871vouchorbad_IllIlIIllIIlI,madebyJakekill871vouchorbad_IllIlIIllIIlI+madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll-1),36)madebyJakekill871vouchorbad_IllIlIIllIIlI=madebyJakekill871vouchorbad_IllIlIIllIIlI+madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll;return madebyJakekill871vouchorbad_IllIlIll end;madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll=madebyJakekill871vouchorbad_lIIllllllIlIlIlIlIIIlI(madebyJakekill871vouchorbad_IllIlllllllIIIllIlIlIlI())madebyJakekill871vouchorbad_IlllIllll[1]=madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll;while madebyJakekill871vouchorbad_IllIlIIllIIlI<#madebyJakekill871vouchorbad_lllllIIIlIllIllIIIllIlIll do local madebyJakekill871vouchorbad_IllIlIIllIIlI=madebyJakekill871vouchorbad_IllIlllllllIIIllIlIlIlI()if madebyJakekill871vouchorbad_lIIIIllIllIIlI[madebyJakekill871vouchorbad_IllIlIIllIIlI]then madebyJakekill871vouchorbad_IllIlIll=madebyJakekill871vouchorbad_lIIIIllIllIIlI[madebyJakekill871vouchorbad_IllIlIIllIIlI]else madebyJakekill871vouchorbad_IllIlIll=madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll..madebyJakekill871vouchorbad_lIlllllIlllllIIlIlllIIIII(madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll,1,1)end;madebyJakekill871vouchorbad_lIIIIllIllIIlI[madebyJakekill871vouchorbad_IlllIIII]=madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll..madebyJakekill871vouchorbad_lIlllllIlllllIIlIlllIIIII(madebyJakekill871vouchorbad_IllIlIll,1,1)madebyJakekill871vouchorbad_IlllIllll[#madebyJakekill871vouchorbad_IlllIllll+1],madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll,madebyJakekill871vouchorbad_IlllIIII=madebyJakekill871vouchorbad_IllIlIll,madebyJakekill871vouchorbad_IllIlIll,madebyJakekill871vouchorbad_IlllIIII+1 end;return table.concat(madebyJakekill871vouchorbad_IlllIllll)end;local madebyJakekill871vouchorbad_IIlIIlIIlIIllIIIIllIIIII=madebyJakekill871vouchorbad_lIlIlllIl('26C26F27526D26A27526F24Z23Y23U23M24526D26J27923Z23S23S23W23L24223T23O24323Y23S23T26D26B27924023Q23Y24326F26E27928327627827527B27D24528527526K27926926Q27927428328326B26U28I28226F28M28F28P26T26S28P28C26F26R28W27928Q28P29128U29027927826D29127527H28329927927W28X27526G28428S27529527627929528327427626T26F29E29128E29O29926T26M29K27929J27528C');local madebyJakekill871vouchorbad_IllIlIIllIIlI=(bit or bit32);local madebyJakekill871vouchorbad_IlllIllll=madebyJakekill871vouchorbad_IllIlIIllIIlI and madebyJakekill871vouchorbad_IllIlIIllIIlI.bxor or function(madebyJakekill871vouchorbad_IllIlIIllIIlI,madebyJakekill871vouchorbad_IllIlIll)local madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll,madebyJakekill871vouchorbad_IlllIllll,madebyJakekill871vouchorbad_lIlllllIlllllIIlIlllIIIII=1,0,10 while madebyJakekill871vouchorbad_IllIlIIllIIlI>0 and madebyJakekill871vouchorbad_IllIlIll>0 do local madebyJakekill871vouchorbad_IlllIIII,madebyJakekill871vouchorbad_lIlllllIlllllIIlIlllIIIII=madebyJakekill871vouchorbad_IllIlIIllIIlI%2,madebyJakekill871vouchorbad_IllIlIll%2 if madebyJakekill871vouchorbad_IlllIIII~=madebyJakekill871vouchorbad_lIlllllIlllllIIlIlllIIIII then madebyJakekill871vouchorbad_IlllIllll=madebyJakekill871vouchorbad_IlllIllll+madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll end madebyJakekill871vouchorbad_IllIlIIllIIlI,madebyJakekill871vouchorbad_IllIlIll,madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll=(madebyJakekill871vouchorbad_IllIlIIllIIlI-madebyJakekill871vouchorbad_IlllIIII)/2,(madebyJakekill871vouchorbad_IllIlIll-madebyJakekill871vouchorbad_lIlllllIlllllIIlIlllIIIII)/2,madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll*2 end if madebyJakekill871vouchorbad_IllIlIIllIIlI<madebyJakekill871vouchorbad_IllIlIll then madebyJakekill871vouchorbad_IllIlIIllIIlI=madebyJakekill871vouchorbad_IllIlIll end while madebyJakekill871vouchorbad_IllIlIIllIIlI>0 do local madebyJakekill871vouchorbad_IllIlIll=madebyJakekill871vouchorbad_IllIlIIllIIlI%2 if madebyJakekill871vouchorbad_IllIlIll>0 then madebyJakekill871vouchorbad_IlllIllll=madebyJakekill871vouchorbad_IlllIllll+madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll end madebyJakekill871vouchorbad_IllIlIIllIIlI,madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll=(madebyJakekill871vouchorbad_IllIlIIllIIlI-madebyJakekill871vouchorbad_IllIlIll)/2,madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll*2 end return madebyJakekill871vouchorbad_IlllIllll end local function madebyJakekill871vouchorbad_IllIlIll(madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll,madebyJakekill871vouchorbad_IllIlIIllIIlI,madebyJakekill871vouchorbad_IllIlIll)if madebyJakekill871vouchorbad_IllIlIll then local madebyJakekill871vouchorbad_IllIlIIllIIlI=(madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll/2^(madebyJakekill871vouchorbad_IllIlIIllIIlI-1))%2^((madebyJakekill871vouchorbad_IllIlIll-1)-(madebyJakekill871vouchorbad_IllIlIIllIIlI-1)+1);return madebyJakekill871vouchorbad_IllIlIIllIIlI-madebyJakekill871vouchorbad_IllIlIIllIIlI%1;else local madebyJakekill871vouchorbad_IllIlIIllIIlI=2^(madebyJakekill871vouchorbad_IllIlIIllIIlI-1);return(madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll%(madebyJakekill871vouchorbad_IllIlIIllIIlI+madebyJakekill871vouchorbad_IllIlIIllIIlI)>=madebyJakekill871vouchorbad_IllIlIIllIIlI)and 1 or 0;end;end;local madebyJakekill871vouchorbad_IllIlIIllIIlI=1;local function madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll()local madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll,madebyJakekill871vouchorbad_IllIlIll,madebyJakekill871vouchorbad_lIlllllIlllllIIlIlllIIIII,madebyJakekill871vouchorbad_IlllIIII=madebyJakekill871vouchorbad_IllIlllllllIIIllIlIlIlI(madebyJakekill871vouchorbad_IIlIIlIIlIIllIIIIllIIIII,madebyJakekill871vouchorbad_IllIlIIllIIlI,madebyJakekill871vouchorbad_IllIlIIllIIlI+3);madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll=madebyJakekill871vouchorbad_IlllIllll(madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll,231)madebyJakekill871vouchorbad_IllIlIll=madebyJakekill871vouchorbad_IlllIllll(madebyJakekill871vouchorbad_IllIlIll,231)madebyJakekill871vouchorbad_lIlllllIlllllIIlIlllIIIII=madebyJakekill871vouchorbad_IlllIllll(madebyJakekill871vouchorbad_lIlllllIlllllIIlIlllIIIII,231)madebyJakekill871vouchorbad_IlllIIII=madebyJakekill871vouchorbad_IlllIllll(madebyJakekill871vouchorbad_IlllIIII,231)madebyJakekill871vouchorbad_IllIlIIllIIlI=madebyJakekill871vouchorbad_IllIlIIllIIlI+4;return(madebyJakekill871vouchorbad_IlllIIII*16777216)+(madebyJakekill871vouchorbad_lIlllllIlllllIIlIlllIIIII*65536)+(madebyJakekill871vouchorbad_IllIlIll*256)+madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll;end;local function madebyJakekill871vouchorbad_lllllIIIlIllIllIIIllIlIll()local madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll=madebyJakekill871vouchorbad_IlllIllll(madebyJakekill871vouchorbad_IllIlllllllIIIllIlIlIlI(madebyJakekill871vouchorbad_IIlIIlIIlIIllIIIIllIIIII,madebyJakekill871vouchorbad_IllIlIIllIIlI,madebyJakekill871vouchorbad_IllIlIIllIIlI),231);madebyJakekill871vouchorbad_IllIlIIllIIlI=madebyJakekill871vouchorbad_IllIlIIllIIlI+1;return madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll;end;local function madebyJakekill871vouchorbad_lIIIIllIllIIlI()local madebyJakekill871vouchorbad_IllIlIll,madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll=madebyJakekill871vouchorbad_IllIlllllllIIIllIlIlIlI(madebyJakekill871vouchorbad_IIlIIlIIlIIllIIIIllIIIII,madebyJakekill871vouchorbad_IllIlIIllIIlI,madebyJakekill871vouchorbad_IllIlIIllIIlI+2);madebyJakekill871vouchorbad_IllIlIll=madebyJakekill871vouchorbad_IlllIllll(madebyJakekill871vouchorbad_IllIlIll,231)madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll=madebyJakekill871vouchorbad_IlllIllll(madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll,231)madebyJakekill871vouchorbad_IllIlIIllIIlI=madebyJakekill871vouchorbad_IllIlIIllIIlI+2;return(madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll*256)+madebyJakekill871vouchorbad_IllIlIll;end;local function madebyJakekill871vouchorbad_lIlIlllIl()local madebyJakekill871vouchorbad_IlllIllll=madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll();local madebyJakekill871vouchorbad_IllIlIIllIIlI=madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll();local madebyJakekill871vouchorbad_lIlllllIlllllIIlIlllIIIII=1;local madebyJakekill871vouchorbad_IlllIllll=(madebyJakekill871vouchorbad_IllIlIll(madebyJakekill871vouchorbad_IllIlIIllIIlI,1,20)*(2^32))+madebyJakekill871vouchorbad_IlllIllll;local madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll=madebyJakekill871vouchorbad_IllIlIll(madebyJakekill871vouchorbad_IllIlIIllIIlI,21,31);local madebyJakekill871vouchorbad_IllIlIIllIIlI=((-1)^madebyJakekill871vouchorbad_IllIlIll(madebyJakekill871vouchorbad_IllIlIIllIIlI,32));if(madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll==0)then if(madebyJakekill871vouchorbad_IlllIllll==0)then return madebyJakekill871vouchorbad_IllIlIIllIIlI*0;else madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll=1;madebyJakekill871vouchorbad_lIlllllIlllllIIlIlllIIIII=0;end;elseif(madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll==2047)then return(madebyJakekill871vouchorbad_IlllIllll==0)and(madebyJakekill871vouchorbad_IllIlIIllIIlI*(1/0))or(madebyJakekill871vouchorbad_IllIlIIllIIlI*(0/0));end;return madebyJakekill871vouchorbad_IlllIIlIIIIIIIIII(madebyJakekill871vouchorbad_IllIlIIllIIlI,madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll-1023)*(madebyJakekill871vouchorbad_lIlllllIlllllIIlIlllIIIII+(madebyJakekill871vouchorbad_IlllIllll/(2^52)));end;local madebyJakekill871vouchorbad_IllIIlllIIl=madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll;local function madebyJakekill871vouchorbad_IlllIIlIIIIIIIIII(madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll)local madebyJakekill871vouchorbad_IllIlIll;if(not madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll)then madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll=madebyJakekill871vouchorbad_IllIIlllIIl();if(madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll==0)then return'';end;end;madebyJakekill871vouchorbad_IllIlIll=madebyJakekill871vouchorbad_lIlllllIlllllIIlIlllIIIII(madebyJakekill871vouchorbad_IIlIIlIIlIIllIIIIllIIIII,madebyJakekill871vouchorbad_IllIlIIllIIlI,madebyJakekill871vouchorbad_IllIlIIllIIlI+madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll-1);madebyJakekill871vouchorbad_IllIlIIllIIlI=madebyJakekill871vouchorbad_IllIlIIllIIlI+madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll;local madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll={}for madebyJakekill871vouchorbad_IllIlIIllIIlI=1,#madebyJakekill871vouchorbad_IllIlIll do madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll[madebyJakekill871vouchorbad_IllIlIIllIIlI]=madebyJakekill871vouchorbad_lIIllllllIlIlIlIlIIIlI(madebyJakekill871vouchorbad_IlllIllll(madebyJakekill871vouchorbad_IllIlllllllIIIllIlIlIlI(madebyJakekill871vouchorbad_lIlllllIlllllIIlIlllIIIII(madebyJakekill871vouchorbad_IllIlIll,madebyJakekill871vouchorbad_IllIlIIllIIlI,madebyJakekill871vouchorbad_IllIlIIllIIlI)),231))end return madebyJakekill871vouchorbad_IIlIlllI(madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll);end;local madebyJakekill871vouchorbad_IllIlIIllIIlI=madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll;local function madebyJakekill871vouchorbad_IIlIlllI(...)return{...},madebyJakekill871vouchorbad_llIIIllIl('#',...)end local function madebyJakekill871vouchorbad_IllIlllllllIIIllIlIlIlI()local madebyJakekill871vouchorbad_IIlIIlIIlIIllIIIIllIIIII={};local madebyJakekill871vouchorbad_IlllIllll={};local madebyJakekill871vouchorbad_IllIlIIllIIlI={};local madebyJakekill871vouchorbad_lIIllllllIlIlIlIlIIIlI={[#{"1 + 1 = 111";"1 + 1 = 111";}]=madebyJakekill871vouchorbad_IlllIllll,[#{"1 + 1 = 111";{918;357;86;794};"1 + 1 = 111";}]=nil,[#{"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";"1 + 1 = 111";}]=madebyJakekill871vouchorbad_IllIlIIllIIlI,[#{"1 + 1 = 111";}]=madebyJakekill871vouchorbad_IIlIIlIIlIIllIIIIllIIIII,};local madebyJakekill871vouchorbad_IllIlIIllIIlI=madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll()local madebyJakekill871vouchorbad_lIlllllIlllllIIlIlllIIIII={}for madebyJakekill871vouchorbad_IllIlIll=1,madebyJakekill871vouchorbad_IllIlIIllIIlI do local madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll=madebyJakekill871vouchorbad_lllllIIIlIllIllIIIllIlIll();local madebyJakekill871vouchorbad_IllIlIIllIIlI;if(madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll==0)then madebyJakekill871vouchorbad_IllIlIIllIIlI=(madebyJakekill871vouchorbad_lllllIIIlIllIllIIIllIlIll()~=0);elseif(madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll==3)then madebyJakekill871vouchorbad_IllIlIIllIIlI=madebyJakekill871vouchorbad_lIlIlllIl();elseif(madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll==2)then madebyJakekill871vouchorbad_IllIlIIllIIlI=madebyJakekill871vouchorbad_IlllIIlIIIIIIIIII();end;madebyJakekill871vouchorbad_lIlllllIlllllIIlIlllIIIII[madebyJakekill871vouchorbad_IllIlIll]=madebyJakekill871vouchorbad_IllIlIIllIIlI;end;madebyJakekill871vouchorbad_lIIllllllIlIlIlIlIIIlI[3]=madebyJakekill871vouchorbad_lllllIIIlIllIllIIIllIlIll();for madebyJakekill871vouchorbad_IllIlIIllIIlI=1,madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll()do madebyJakekill871vouchorbad_IlllIllll[madebyJakekill871vouchorbad_IllIlIIllIIlI-1]=madebyJakekill871vouchorbad_IllIlllllllIIIllIlIlIlI();end;for madebyJakekill871vouchorbad_IllIlllllllIIIllIlIlIlI=1,madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll()do local madebyJakekill871vouchorbad_IllIlIIllIIlI=madebyJakekill871vouchorbad_lllllIIIlIllIllIIIllIlIll();if(madebyJakekill871vouchorbad_IllIlIll(madebyJakekill871vouchorbad_IllIlIIllIIlI,1,1)==0)then local madebyJakekill871vouchorbad_IlllIllll=madebyJakekill871vouchorbad_IllIlIll(madebyJakekill871vouchorbad_IllIlIIllIIlI,2,3);local madebyJakekill871vouchorbad_IlllIIII=madebyJakekill871vouchorbad_IllIlIll(madebyJakekill871vouchorbad_IllIlIIllIIlI,4,6);local madebyJakekill871vouchorbad_IllIlIIllIIlI={madebyJakekill871vouchorbad_lIIIIllIllIIlI(),madebyJakekill871vouchorbad_lIIIIllIllIIlI(),nil,nil};if(madebyJakekill871vouchorbad_IlllIllll==0)then madebyJakekill871vouchorbad_IllIlIIllIIlI[#{"1 + 1 = 111";"1 + 1 = 111";{701;72;941;989};}]=madebyJakekill871vouchorbad_lIIIIllIllIIlI();madebyJakekill871vouchorbad_IllIlIIllIIlI[#("7bAe")]=madebyJakekill871vouchorbad_lIIIIllIllIIlI();elseif(madebyJakekill871vouchorbad_IlllIllll==1)then madebyJakekill871vouchorbad_IllIlIIllIIlI[#("T1J")]=madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll();elseif(madebyJakekill871vouchorbad_IlllIllll==2)then madebyJakekill871vouchorbad_IllIlIIllIIlI[#("2sZ")]=madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll()-(2^16)elseif(madebyJakekill871vouchorbad_IlllIllll==3)then madebyJakekill871vouchorbad_IllIlIIllIIlI[#("bRl")]=madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll()-(2^16)madebyJakekill871vouchorbad_IllIlIIllIIlI[#("XjEa")]=madebyJakekill871vouchorbad_lIIIIllIllIIlI();end;if(madebyJakekill871vouchorbad_IllIlIll(madebyJakekill871vouchorbad_IlllIIII,1,1)==1)then madebyJakekill871vouchorbad_IllIlIIllIIlI[#("0y")]=madebyJakekill871vouchorbad_lIlllllIlllllIIlIlllIIIII[madebyJakekill871vouchorbad_IllIlIIllIIlI[#("es")]]end if(madebyJakekill871vouchorbad_IllIlIll(madebyJakekill871vouchorbad_IlllIIII,2,2)==1)then madebyJakekill871vouchorbad_IllIlIIllIIlI[#("4Yx")]=madebyJakekill871vouchorbad_lIlllllIlllllIIlIlllIIIII[madebyJakekill871vouchorbad_IllIlIIllIIlI[#("g6q")]]end if(madebyJakekill871vouchorbad_IllIlIll(madebyJakekill871vouchorbad_IlllIIII,3,3)==1)then madebyJakekill871vouchorbad_IllIlIIllIIlI[#("zFz6")]=madebyJakekill871vouchorbad_lIlllllIlllllIIlIlllIIIII[madebyJakekill871vouchorbad_IllIlIIllIIlI[#("nk0o")]]end madebyJakekill871vouchorbad_IIlIIlIIlIIllIIIIllIIIII[madebyJakekill871vouchorbad_IllIlllllllIIIllIlIlIlI]=madebyJakekill871vouchorbad_IllIlIIllIIlI;end end;return madebyJakekill871vouchorbad_lIIllllllIlIlIlIlIIIlI;end;local function madebyJakekill871vouchorbad_lIIIIllIllIIlI(madebyJakekill871vouchorbad_IllIlIIllIIlI,madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll,madebyJakekill871vouchorbad_lIlllllIlllllIIlIlllIIIII)madebyJakekill871vouchorbad_IllIlIIllIIlI=(madebyJakekill871vouchorbad_IllIlIIllIIlI==true and madebyJakekill871vouchorbad_IllIlllllllIIIllIlIlIlI())or madebyJakekill871vouchorbad_IllIlIIllIIlI;return(function(...)local madebyJakekill871vouchorbad_lIllllIlIll=madebyJakekill871vouchorbad_IllIlIIllIIlI[1];local madebyJakekill871vouchorbad_IllIlIll=madebyJakekill871vouchorbad_IllIlIIllIIlI[3];local madebyJakekill871vouchorbad_IllIlllllllIIIllIlIlIlI=madebyJakekill871vouchorbad_IllIlIIllIIlI[2];local madebyJakekill871vouchorbad_IllIlIIllIIlI=madebyJakekill871vouchorbad_IIlIlllI local madebyJakekill871vouchorbad_IlllIllll=1;local madebyJakekill871vouchorbad_lIIllllllIlIlIlIlIIIlI=-1;local madebyJakekill871vouchorbad_IIlIlllI={};local madebyJakekill871vouchorbad_IIlIIlIIlIIllIIIIllIIIII={...};local madebyJakekill871vouchorbad_lllllIIIlIllIllIIIllIlIll=madebyJakekill871vouchorbad_llIIIllIl('#',...)-1;local madebyJakekill871vouchorbad_IllIlIIllIIlI={};local madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll={};for madebyJakekill871vouchorbad_IllIlIIllIIlI=0,madebyJakekill871vouchorbad_lllllIIIlIllIllIIIllIlIll do if(madebyJakekill871vouchorbad_IllIlIIllIIlI>=madebyJakekill871vouchorbad_IllIlIll)then madebyJakekill871vouchorbad_IIlIlllI[madebyJakekill871vouchorbad_IllIlIIllIIlI-madebyJakekill871vouchorbad_IllIlIll]=madebyJakekill871vouchorbad_IIlIIlIIlIIllIIIIllIIIII[madebyJakekill871vouchorbad_IllIlIIllIIlI+1];else madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll[madebyJakekill871vouchorbad_IllIlIIllIIlI]=madebyJakekill871vouchorbad_IIlIIlIIlIIllIIIIllIIIII[madebyJakekill871vouchorbad_IllIlIIllIIlI+#{"1 + 1 = 111";}];end;end;local madebyJakekill871vouchorbad_IllIlIIllIIlI=madebyJakekill871vouchorbad_lllllIIIlIllIllIIIllIlIll-madebyJakekill871vouchorbad_IllIlIll+1 local madebyJakekill871vouchorbad_IllIlIIllIIlI;local madebyJakekill871vouchorbad_IllIlIll;while true do madebyJakekill871vouchorbad_IllIlIIllIIlI=madebyJakekill871vouchorbad_lIllllIlIll[madebyJakekill871vouchorbad_IlllIllll];madebyJakekill871vouchorbad_IllIlIll=madebyJakekill871vouchorbad_IllIlIIllIIlI[#("b")];if madebyJakekill871vouchorbad_IllIlIll<=#("q9L4LgWIgT")then if madebyJakekill871vouchorbad_IllIlIll<=#("EYmF")then if madebyJakekill871vouchorbad_IllIlIll<=#("e")then if madebyJakekill871vouchorbad_IllIlIll>#("")then local madebyJakekill871vouchorbad_IllIlIIllIIlI=madebyJakekill871vouchorbad_IllIlIIllIIlI[#("oT")];do return madebyJakekill871vouchorbad_IlllIIII(madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll,madebyJakekill871vouchorbad_IllIlIIllIIlI,madebyJakekill871vouchorbad_lIIllllllIlIlIlIlIIIlI)end;else madebyJakekill871vouchorbad_lIlllllIlllllIIlIlllIIIII[madebyJakekill871vouchorbad_IllIlIIllIIlI[#("ajj")]]=madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll[madebyJakekill871vouchorbad_IllIlIIllIIlI[#("8X")]];end;elseif madebyJakekill871vouchorbad_IllIlIll<=#{"1 + 1 = 111";"1 + 1 = 111";}then local madebyJakekill871vouchorbad_IllIlIll=madebyJakekill871vouchorbad_IllIlIIllIIlI[#("D5")]madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll[madebyJakekill871vouchorbad_IllIlIll]=madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll[madebyJakekill871vouchorbad_IllIlIll](madebyJakekill871vouchorbad_IlllIIII(madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll,madebyJakekill871vouchorbad_IllIlIll+1,madebyJakekill871vouchorbad_IllIlIIllIIlI[#("fhp")]))elseif madebyJakekill871vouchorbad_IllIlIll>#("frz")then local madebyJakekill871vouchorbad_IllIlIIllIIlI=madebyJakekill871vouchorbad_IllIlIIllIIlI[#{"1 + 1 = 111";{422;308;542;940};}];do return madebyJakekill871vouchorbad_IlllIIII(madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll,madebyJakekill871vouchorbad_IllIlIIllIIlI,madebyJakekill871vouchorbad_lIIllllllIlIlIlIlIIIlI)end;else do return end;end;elseif madebyJakekill871vouchorbad_IllIlIll<=#("cvuGNCC")then if madebyJakekill871vouchorbad_IllIlIll<=#("ztQRE")then madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll[madebyJakekill871vouchorbad_IllIlIIllIIlI[#("dW")]]=madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll[madebyJakekill871vouchorbad_IllIlIIllIIlI[#("t2n")]];elseif madebyJakekill871vouchorbad_IllIlIll==#("OMZoS2")then madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll[madebyJakekill871vouchorbad_IllIlIIllIIlI[#("54")]]=madebyJakekill871vouchorbad_lIIIIllIllIIlI(madebyJakekill871vouchorbad_IllIlllllllIIIllIlIlIlI[madebyJakekill871vouchorbad_IllIlIIllIIlI[#("YUy")]],nil,madebyJakekill871vouchorbad_lIlllllIlllllIIlIlllIIIII);else if not madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll[madebyJakekill871vouchorbad_IllIlIIllIIlI[#{"1 + 1 = 111";"1 + 1 = 111";}]]then madebyJakekill871vouchorbad_IlllIllll=madebyJakekill871vouchorbad_IlllIllll+1;else madebyJakekill871vouchorbad_IlllIllll=madebyJakekill871vouchorbad_IllIlIIllIIlI[#("icm")];end;end;elseif madebyJakekill871vouchorbad_IllIlIll<=#("IC7HotDa")then madebyJakekill871vouchorbad_IlllIllll=madebyJakekill871vouchorbad_IllIlIIllIIlI[#("Ucf")];elseif madebyJakekill871vouchorbad_IllIlIll>#("4tFMdBnKg")then madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll[madebyJakekill871vouchorbad_IllIlIIllIIlI[#{{310;28;599;603};{361;758;171;677};}]]=madebyJakekill871vouchorbad_lIlllllIlllllIIlIlllIIIII[madebyJakekill871vouchorbad_IllIlIIllIIlI[#{{877;380;288;340};"1 + 1 = 111";{946;774;206;30};}]];else madebyJakekill871vouchorbad_lIlllllIlllllIIlIlllIIIII[madebyJakekill871vouchorbad_IllIlIIllIIlI[#("WZ4")]]=madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll[madebyJakekill871vouchorbad_IllIlIIllIIlI[#{"1 + 1 = 111";{183;148;630;738};}]];end;elseif madebyJakekill871vouchorbad_IllIlIll<=#("cgYkXxvF5Ne0JGb")then if madebyJakekill871vouchorbad_IllIlIll<=#("4x9zh9QbAxl2")then if madebyJakekill871vouchorbad_IllIlIll==#("nzoi200Uqjj")then local madebyJakekill871vouchorbad_IllIlIll=madebyJakekill871vouchorbad_IllIlIIllIIlI[#("vc")]madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll[madebyJakekill871vouchorbad_IllIlIll]=madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll[madebyJakekill871vouchorbad_IllIlIll](madebyJakekill871vouchorbad_IlllIIII(madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll,madebyJakekill871vouchorbad_IllIlIll+1,madebyJakekill871vouchorbad_IllIlIIllIIlI[#("6Tq")]))else local madebyJakekill871vouchorbad_IllIlIll=madebyJakekill871vouchorbad_IllIlIIllIIlI[#("S4")];do return madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll[madebyJakekill871vouchorbad_IllIlIll](madebyJakekill871vouchorbad_IlllIIII(madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll,madebyJakekill871vouchorbad_IllIlIll+1,madebyJakekill871vouchorbad_IllIlIIllIIlI[#("SPb")]))end;end;elseif madebyJakekill871vouchorbad_IllIlIll<=#("YIytdU9KJH0LR")then local madebyJakekill871vouchorbad_IllIlIll=madebyJakekill871vouchorbad_IllIlIIllIIlI[#("vK")];do return madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll[madebyJakekill871vouchorbad_IllIlIll](madebyJakekill871vouchorbad_IlllIIII(madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll,madebyJakekill871vouchorbad_IllIlIll+1,madebyJakekill871vouchorbad_IllIlIIllIIlI[#("cpO")]))end;elseif madebyJakekill871vouchorbad_IllIlIll>#("dAWVAlEeSoZSRQ")then do return end;else madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll[madebyJakekill871vouchorbad_IllIlIIllIIlI[#("bg")]]=madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll[madebyJakekill871vouchorbad_IllIlIIllIIlI[#("DZi")]];end;elseif madebyJakekill871vouchorbad_IllIlIll<=#("VNn0HtBsSxNmr1QJOC")then if madebyJakekill871vouchorbad_IllIlIll<=#("XA7FT8zU0iEvcszY")then do return madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll[madebyJakekill871vouchorbad_IllIlIIllIIlI[#("Rj")]]();end;elseif madebyJakekill871vouchorbad_IllIlIll==#("MUkzMgezX8lnbPlpI")then madebyJakekill871vouchorbad_IlllIllll=madebyJakekill871vouchorbad_IllIlIIllIIlI[#("BGN")];else madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll[madebyJakekill871vouchorbad_IllIlIIllIIlI[#{{332;426;116;489};"1 + 1 = 111";}]]=madebyJakekill871vouchorbad_lIIIIllIllIIlI(madebyJakekill871vouchorbad_IllIlllllllIIIllIlIlIlI[madebyJakekill871vouchorbad_IllIlIIllIIlI[#{{693;200;102;969};{803;715;852;633};"1 + 1 = 111";}]],nil,madebyJakekill871vouchorbad_lIlllllIlllllIIlIlllIIIII);end;elseif madebyJakekill871vouchorbad_IllIlIll<=#("WXhE2iKLjnaK33cX63r")then madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll[madebyJakekill871vouchorbad_IllIlIIllIIlI[#{{545;597;316;308};{717;473;741;877};}]]=madebyJakekill871vouchorbad_lIlllllIlllllIIlIlllIIIII[madebyJakekill871vouchorbad_IllIlIIllIIlI[#("de0")]];elseif madebyJakekill871vouchorbad_IllIlIll==#("ks2g69mHYDsfFANaVi2b")then do return madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll[madebyJakekill871vouchorbad_IllIlIIllIIlI[#("p5")]]();end;else if not madebyJakekill871vouchorbad_IIllIlIIIlIlIIllIIlIIlll[madebyJakekill871vouchorbad_IllIlIIllIIlI[#("iL")]]then madebyJakekill871vouchorbad_IlllIllll=madebyJakekill871vouchorbad_IlllIllll+1;else madebyJakekill871vouchorbad_IlllIllll=madebyJakekill871vouchorbad_IllIlIIllIIlI[#("gKX")];end;end;madebyJakekill871vouchorbad_IlllIllll=madebyJakekill871vouchorbad_IlllIllll+1;end;end);end;return madebyJakekill871vouchorbad_lIIIIllIllIIlI(true,{},madebyJakekill871vouchorbad_lIllllIlIll())();end)(string.byte,table.insert,setmetatable);
+
+    end
+},
+		 ["vote"] = {		--Auto Rap Battles
+    ["ListName"] = "vote [1,2]",
+    ["Description"] = "votes a player in auto rap battles",
+    ["Aliases"] = {"vote"},
+    ["Function"] = function(args,speaker)
+	if args[1] then
+		if args[1] == "1" then
+			for i = 1,10000 do 
+				game.Workspace.Votes:FireServer(false,"p1")
+			end
+		elseif args[1] == "2" then
+			for i = 1,10000 do 
+				game.Workspace.Votes:FireServer(false,"p2")
+			end
+end
+	end
+    end
+},
+		 ["tpadmin"] = {	--Cart Ride Into Minion For Admin
+    ["ListName"] = "tpadmin",
+    ["Description"] = "teleports to the admin pad in Rocket Cart Ride",
+    ["Aliases"] = {"gotoadmin,toadmin,goadmin"},
+    ["Function"] = function(args,speaker)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(821, 105, 1776)
+	end
+},
+		 ["report"] = {		--Mass Report
+    ["ListName"] = "report [player] [how many times] [reason]",
+    ["Description"] = "reports a player with a chance of them getting banned. View the developer console to see how fast the reports are",
+    ["Aliases"] = {"report"},
+    ["Function"] = function(args,speaker)
+	    local players = getPlayer(args[1], speaker)
+		for i,v in pairs(players) do
+		                player = (Players[v].Name)
+		reason = (getstring(3))
+    wait()
+	
+_G.Report = true
+t = args[2]
+w = "/"
+p = (t)
+    for count = 1,t do
+        wait()
+                if count >= 0 then
+            if _G.Report == false then
+                print("stopped")
+                break
+                else
+				    game.Players:ReportAbuse(game.Players[player], reason, "Exploiting")
+print(player, reason, count, w, p)
+            end
+                end
+end
+end
+end
+},
+		 ["stealaudios"] = {	--Audio Logger
+    ["ListName"] = "stealaudios",
+    ["Description"] = "opens up a audio logger gui",
+    ["Aliases"] = {"stealaudios"},
+    ["Function"] = function(args,speaker)
+aa = game:GetObjects("rbxassetid://01997056190")[1]
+aa.Parent = game.CoreGui
+wait(0.2)
+GUI = aa.PopupFrame.PopupFrame
+pos = 0
+
+ignore = {
+	"rbxasset://sounds/action_get_up.mp3",
+	"rbxasset://sounds/uuhhh.mp3",
+	"rbxasset://sounds/action_falling.mp3",
+	"rbxasset://sounds/action_jump.mp3",
+	"rbxasset://sounds/action_jump_land.mp3",
+	"rbxasset://sounds/impact_water.mp3",
+	"rbxasset://sounds/action_swim.mp3",
+	"rbxassetid://137579113",
+	"rbxassetid://250450973",
+	"rbxasset://sounds/unsheath.wav",
+	"rbxassetid://138090596",
+	"rbxassetid://144884872",
+	"rbxassetid://357568316",
+	"rbxassetid://536642316",
+	"rbxassetid://138090596",
+	"rbxassetid://260433746",
+	"rbxassetid://440145223",
+	"rbxassetid://566593606",
+	"rbxassetid://294978648",
+	"rbxassetid://344167846",
+	"rbxassetid://552900451",
+	"rbxassetid://101164100",
+	"rbxassetid://259129228",
+	"rbxassetid://563464353",
+	"rbxassetid://541909763",
+	"rbxassetid://687874741",
+	"rbxassetid://376949878",
+	"rbxassetid://608509471",
+	"rbxassetid://161673218",
+	"rbxassetid://296102734",
+	"rbxassetid://851453784",
+	"rbxassetid://131237241",
+	"rbxassetid://166196557",
+	"rbxassetid://136516845",
+	"rbxassetid://201858072",
+	"rbxassetid://851453784",
+	"rbxassetid://166196557",
+	"rbxassetid://1189137394",
+	"rbxassetid://136516845",
+	"rbxassetid://166423137",
+	"rbxassetid://769380905",
+	"rbxassetid://260433768",
+	"rbxassetid://180204650",
+	"rbxassetid://901043735",
+	"rbxassetid://1398471768",
+	"rbxassetid://1079408535",
+	"rbxassetid://685857471",
+	"rbxasset://sounds/action_footsteps_plastic.mp3"
+}
+
+GUI.Close.MouseButton1Click:connect(function()
+	GUI:TweenSize(UDim2.new(0, 360, 0, 0),"Out","Quad",0.5,true) wait(0.6)
+	GUI.Parent:TweenSize(UDim2.new(0, 0, 0, 20),"Out","Quad",0.5,true) wait(0.6)
+	aa:Destroy()
+end)
+
+local min = false
+GUI.Minimize.MouseButton1Click:connect(function()
+	if min == false then
+		GUI:TweenSize(UDim2.new(0, 360, 0, 20),"Out","Quad",0.5,true) min = true
+	else
+		GUI:TweenSize(UDim2.new(0, 360, 0, 260),"Out","Quad",0.5,true) min = false
+	end
+end)
+
+function printTable(tbl)
+	if type(tbl) ~= 'table' then return nil end
+	local depthCount = -15
+
+	local function run(val, inPrefix)
+		depthCount = depthCount + 15
+		-- if inPrefix then print(string.rep(' ', depthCount) .. '{') end
+		for i,v in pairs(val) do
+			if type(v) == 'table' then
+				-- print(string.rep(' ', depthCount) .. ' [' .. tostring(i) .. '] = {')
+				GUI.Store.Text = GUI.Store.Text..'\n'..string.rep(' ', depthCount) .. ' [' .. tostring(i) .. '] = {'
+				run(v, false)
+				wait()
+			else
+				-- print(string.rep(' ', depthCount) .. ' [' .. tostring(i) .. '] = ' .. tostring(v))
+				GUI.Store.Text = GUI.Store.Text..'\n'..string.rep(' ', depthCount) .. ' [' .. tostring(i) .. '] = ' .. tostring(v)
+				wait()
+			end
+		end
+		-- print(string.rep(' ', depthCount) .. '}')
+		depthCount = depthCount - 15
+	end
+	run(tbl, true)
+end
+
+function refreshlist()
+	pos = 0
+	GUI.Logs.CanvasSize = UDim2.new(0,0,0,0)
+	for i,v in pairs(GUI.Logs:GetChildren()) do
+		v.Position = UDim2.new(0,0,0, pos)
+		GUI.Logs.CanvasSize = UDim2.new(0,0,0, pos+20)
+		pos = pos+20
+	end
+end
+
+function FindTable(Table, Name)
+	for i,v in pairs(Table) do
+		if v == Name then
+			return true
+		end end
+	return false
+end
+
+function writefileExploit()
+	if writefile then
+		return true
+	end
+end
+
+writeaudio = {}
+running = false
+GUI.SS.MouseButton1Click:connect(function()
+	if writefileExploit() then
+		if running == false then
+			GUI.Load.Visible = true running = true
+			GUI.Load:TweenSize(UDim2.new(0, 360, 0, 20),"Out","Quad",0.5,true) wait(0.3)
+			for _, child in pairs(GUI.Logs:GetChildren()) do
+				if child:FindFirstChild('ImageButton') then local bttn = child:FindFirstChild('ImageButton')
+					if bttn.BackgroundTransparency == 0 then
+						writeaudio[#writeaudio + 1] = {NAME = child.NAME.Value, ID = child.ID.Value}
+					end
+				end
+			end
+			GUI.Store.Visible = true
+			printTable(writeaudio)
+			wait(0.2)
+			local filename = 0
+			local function write()
+				local file
+				pcall(function() file = readfile("Audios"..filename..".txt") end)
+				if file then
+					filename = filename+1
+					write()
+				else
+					local text = tostring(GUI.Store.Text)
+					text = text:gsub('\n', '\r\n')
+					writefile("Audios"..filename..".txt", text)
+				end
+			end
+			write()
+			for rep = 1,10 do
+			GUI.Load.BackgroundTransparency = GUI.Load.BackgroundTransparency + 0.1
+			wait(0.05)
+			end
+			GUI.Load.Visible = false
+			GUI.Load.BackgroundTransparency = 0
+			GUI.Load.Size = UDim2.new(0, 0, 0, 20)
+			running = false
+			GUI.Store.Visible = false
+			GUI.Store.Text = ''
+			writeaudio = {}
+			game:FindService('StarterGui'):SetCore('SendNotification', {
+				Title = 'Audio Logger',
+				Text = 'Saved audios\n(Audios'..filename..'.txt)',
+				Icon = 'http://www.roblox.com/asset/?id=176572847',
+				Duration = 5,
+			})
+		end
+	else
+		game:FindService('StarterGui'):SetCore('SendNotification', {
+			Title = 'Audio Logger',
+			Text = 'Exploit cannot writefile :(',
+			Icon = 'http://www.roblox.com/asset/?id=176572847',
+			Duration = 5,
+		})
+	end
+end)
+
+GUI.SA.MouseButton1Click:connect(function()
+	if writefileExploit() then
+		if running == false then
+			GUI.Load.Visible = true running = true
+			GUI.Load:TweenSize(UDim2.new(0, 360, 0, 20),"Out","Quad",0.5,true) wait(0.3)
+			for _, child in pairs(GUI.Logs:GetChildren()) do
+				writeaudio[#writeaudio + 1] = {NAME = child.NAME.Value, ID = child.ID.Value}
+			end
+			GUI.Store.Visible = true
+			printTable(writeaudio)
+			wait(0.2)
+			local filename = 0
+			local function write()
+				local file
+				pcall(function() file = readfile("Audios"..filename..".txt") end)
+				if file then
+					filename = filename+1
+					write()
+				else
+					local text = tostring(GUI.Store.Text)
+					text = text:gsub('\n', '\r\n')
+					writefile("Audios"..filename..".txt", text)
+				end
+			end
+			write()
+			for rep = 1,10 do
+				GUI.Load.BackgroundTransparency = GUI.Load.BackgroundTransparency + 0.1
+				wait(0.05)
+			end
+			GUI.Load.Visible = false
+			GUI.Load.BackgroundTransparency = 0
+			GUI.Load.Size = UDim2.new(0, 0, 0, 20)
+			running = false
+			GUI.Store.Visible = false
+			GUI.Store.Text = ''
+			writeaudio = {}
+			game:FindService('StarterGui'):SetCore('SendNotification', {
+				Title = 'Audio Logger',
+				Text = 'Saved audios\n(Audios'..filename..'.txt)',
+				Icon = 'http://www.roblox.com/asset/?id=176572847',
+				Duration = 5,
+			})
+		end
+	else
+		game:FindService('StarterGui'):SetCore('SendNotification', {
+			Title = 'Audio Logger',
+			Text = 'Exploit cannot writefile :(',
+			Icon = 'http://www.roblox.com/asset/?id=176572847',
+			Duration = 5,
+		})
+	end
+end)
+
+selectedaudio = nil
+function getaudio(place)
+	if running == false then
+		GUI.Load.Visible = true running = true
+		GUI.Load:TweenSize(UDim2.new(0, 360, 0, 20),"Out","Quad",0.5,true) wait(0.3)
+		for _, child in pairs(place:GetDescendants()) do
+			spawn(function()
+				if child:IsA("Sound") and not GUI.Logs:FindFirstChild(child.SoundId) and not FindTable(ignore,child.SoundId) then
+					local id = string.match(child.SoundId, "rbxasset://sounds.+") or string.match(child.SoundId, "&hash=.+") or string.match(child.SoundId, "%d+")
+					if id ~= nil then		
+						local newsound = GUI.Audio:Clone()
+						if string.sub(id, 1, 6) == "&hash=" or string.sub(id, 1, 7) == "&0hash=" then
+							id = string.sub(id, (string.sub(id, 1, 6) == "&hash=" and 7) or (string.sub(id, 1, 7) == "&0hash=" and 8), string.len(id))
+							newsound.ImageButton.Image = 'rbxassetid://1453863294'
+						end
+						newsound.Parent = GUI.Logs
+						newsound.Name = child.SoundId
+						newsound.Visible = true
+						newsound.Position = UDim2.new(0,0,0, pos)
+						GUI.Logs.CanvasSize = UDim2.new(0,0,0, pos+20)
+						pos = pos+20
+						local function findname()
+							Asset = game:GetService("MarketplaceService"):GetProductInfo(id)
+						end
+						local audioname = 'error'
+						local success, message = pcall(findname)
+						if success then
+    						newsound.TextLabel.Text = Asset.Name
+							audioname = Asset.Name
+						else
+							newsound.TextLabel.Text = child.Name
+							audioname = child.Name
+						end
+						local data = Instance.new('StringValue') data.Parent = newsound data.Value = child.SoundId data.Name = 'ID'
+						local data2 = Instance.new('StringValue') data2.Parent = newsound data2.Value = audioname data2.Name = 'NAME'
+						local soundselected = false
+						newsound.ImageButton.MouseButton1Click:Connect(function()
+							if GUI.Info.Visible ~= true then
+								if soundselected == false then soundselected = true
+									newsound.ImageButton.BackgroundTransparency = 0
+								else soundselected = false
+									newsound.ImageButton.BackgroundTransparency = 1
+								end
+							end
+						end)
+						newsound.Click.MouseButton1Click:Connect(function()
+							if GUI.Info.Visible ~= true then
+								GUI.Info.TextLabel.Text = "Name: " ..audioname.. "\n\nID: " .. child.SoundId .. "\n\nWorkspace Name: " .. child.Name
+								selectedaudio = child.SoundId
+								GUI.Info.Visible = true
+							end
+						end)
+					end
+				end
+			end)
+		end
+	end
+	for rep = 1,10 do
+		GUI.Load.BackgroundTransparency = GUI.Load.BackgroundTransparency + 0.1
+		wait(0.05)
+	end
+	GUI.Load.Visible = false
+	GUI.Load.BackgroundTransparency = 0
+	GUI.Load.Size = UDim2.new(0, 0, 0, 20)
+	running = false
+end
+
+GUI.All.MouseButton1Click:connect(function() getaudio(game)end)
+GUI.Workspace.MouseButton1Click:connect(function() getaudio(workspace)end)
+GUI.Lighting.MouseButton1Click:connect(function() getaudio(game:GetService('Lighting'))end)
+GUI.SoundS.MouseButton1Click:connect(function() getaudio(game:GetService('SoundService'))end)
+GUI.Clr.MouseButton1Click:connect(function()
+	for _, child in pairs(GUI.Logs:GetChildren()) do
+		if child:FindFirstChild('ImageButton') then local bttn = child:FindFirstChild('ImageButton')
+			if bttn.BackgroundTransparency == 1 then
+				bttn.Parent:Destroy()
+				refreshlist()
+			end
+		end
+	end
+end)
+GUI.ClrS.MouseButton1Click:connect(function()
+	for _, child in pairs(GUI.Logs:GetChildren()) do
+		if child:FindFirstChild('ImageButton') then local bttn = child:FindFirstChild('ImageButton')
+			if bttn.BackgroundTransparency == 0 then
+				bttn.Parent:Destroy()
+				refreshlist()
+			end
+		end
+	end
+end)
+autoscan = false
+GUI.AutoScan.MouseButton1Click:connect(function()
+	if autoscan == false then autoscan = true
+		GUI.AutoScan.BackgroundTransparency = 0.5
+		game:FindService('StarterGui'):SetCore('SendNotification', {
+			Title = 'Audio Logger',
+			Text = 'Auto Scan ENABLED',
+			Icon = 'http://www.roblox.com/asset/?id=176572847',
+			Duration = 5,
+		})
+	else autoscan = false
+		GUI.AutoScan.BackgroundTransparency = 0
+		game:FindService('StarterGui'):SetCore('SendNotification', {
+			Title = 'Audio Logger',
+			Text = 'Auto Scan DISABLED',
+			Icon = 'http://www.roblox.com/asset/?id=176572847',
+			Duration = 5,
+		})
+	end
+end)
+
+game.DescendantAdded:connect(function(added)
+	wait()
+	if autoscan == true and added:IsA('Sound') and not GUI.Logs:FindFirstChild(added.SoundId) and not FindTable(ignore,added.SoundId) then
+		local id = string.match(added.SoundId, "rbxasset://sounds.+") or string.match(added.SoundId, "&hash=.+") or string.match(added.SoundId, "%d+")
+		if id ~= nil then		
+			local newsound = GUI.Audio:Clone()
+				if string.sub(id, 1, 6) == "&hash=" or string.sub(id, 1, 7) == "&0hash=" then
+					id = string.sub(id, (string.sub(id, 1, 6) == "&hash=" and 7) or (string.sub(id, 1, 7) == "&0hash=" and 8), string.len(id))
+					newsound.ImageButton.Image = 'rbxassetid://1453863294'
+				end
+				local scrolldown = false
+				newsound.Parent = GUI.Logs
+				newsound.Name = added.SoundId
+				newsound.Visible = true
+				newsound.Position = UDim2.new(0,0,0, pos)
+				if GUI.Logs.CanvasPosition.Y == GUI.Logs.CanvasSize.Y.Offset - 230 then
+					scrolldown = true
+				end
+				GUI.Logs.CanvasSize = UDim2.new(0,0,0, pos+20)
+				pos = pos+20
+				local function findname()
+					Asset = game:GetService("MarketplaceService"):GetProductInfo(id)
+				end
+				local audioname = 'error'
+				local success, message = pcall(findname)
+				if success then
+    				newsound.TextLabel.Text = Asset.Name
+					audioname = Asset.Name
+				else 
+					newsound.TextLabel.Text = added.Name
+					audioname = added.Name
+				end
+				local data = Instance.new('StringValue') data.Parent = newsound data.Value = added.SoundId data.Name = 'ID'
+				local data2 = Instance.new('StringValue') data2.Parent = newsound data2.Value = audioname data2.Name = 'NAME'
+				local soundselected = false
+				newsound.ImageButton.MouseButton1Click:Connect(function()
+					if GUI.Info.Visible ~= true then
+						if soundselected == false then soundselected = true
+							newsound.ImageButton.BackgroundTransparency = 0
+						else soundselected = false
+							newsound.ImageButton.BackgroundTransparency = 1
+						end
+					end
+				end)
+				newsound.Click.MouseButton1Click:Connect(function()
+					if GUI.Info.Visible ~= true then
+						GUI.Info.TextLabel.Text = "Name: " ..audioname.. "\n\nID: " .. added.SoundId .. "\n\nWorkspace Name: " .. added.Name
+						selectedaudio = added.SoundId
+						GUI.Info.Visible = true
+					end
+				end)
+				--230'
+			if scrolldown == true then
+				GUI.Logs.CanvasPosition = Vector2.new(0, 9999999999999999999999999999999999999999999, 0, 0)
+			end
+		end
+	end
+end)
+
+GUI.Info.Copy.MouseButton1Click:Connect(function()
+	if pcall(function() Synapse:Copy(selectedaudio) end) then	
+	else
+		local clip = setclipboard or Clipboard.set
+		clip(selectedaudio)
+	end
+	game:FindService('StarterGui'):SetCore('SendNotification', {
+		Title = 'Audio Logger',
+		Text = 'Copied to clipboard',
+		Icon = 'http://www.roblox.com/asset/?id=176572847',
+		Duration = 5,
+	})
+end)
+
+GUI.Info.Close.MouseButton1Click:Connect(function()
+	GUI.Info.Visible = false
+	for _, sound in pairs(game:GetService('Players').LocalPlayer.PlayerGui:GetChildren()) do
+		if sound.Name == 'SampleSound' then
+			sound:Destroy()
+		end
+	end
+	GUI.Info.Listen.Text = 'Listen'
+end)
+
+GUI.Info.Listen.MouseButton1Click:Connect(function()
+	if GUI.Info.Listen.Text == 'Listen' then
+		local samplesound = Instance.new('Sound') samplesound.Parent = game:GetService('Players').LocalPlayer.PlayerGui
+		samplesound.Looped = true samplesound.SoundId = selectedaudio samplesound:Play() samplesound.Name = 'SampleSound'
+		samplesound.Volume = 5
+		GUI.Info.Listen.Text = 'Stop'
+	else
+		for _, sound in pairs(game:GetService('Players').LocalPlayer.PlayerGui:GetChildren()) do
+			if sound.Name == 'SampleSound' then
+				sound:Destroy()
+			end
+		end
+		GUI.Info.Listen.Text = 'Listen'
+	end
+end)
+
+function drag(gui)
+	spawn(function()
+		local UserInputService = game:GetService("UserInputService")
+		local dragging
+		local dragInput
+		local dragStart
+		local startPos
+		local function update(input)
+			local delta = input.Position - dragStart
+			gui:TweenPosition(UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y), "InOut", "Quart", 0.04, true, nil) 
+		end
+		gui.InputBegan:Connect(function(input)
+			if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			dragging = true
+			dragStart = input.Position
+			startPos = gui.Position
+		input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                dragging = false
+            end
+        end)
+    end
+end)
+gui.InputChanged:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+        dragInput = input
+    end
+end)
+UserInputService.InputChanged:Connect(function(input)
+    if input == dragInput and dragging then
+        update(input)
+    end
+end)
+end)
+end
+drag(aa.PopupFrame)
+    end
+},
+		 ["ngod"] = {		--Ninja Sim MADE BY MASTERZED#5501
+    ["ListName"] = "ngod",
+    ["Description"] = "uses a glitch to god you",
+    ["Aliases"] = {"ngod"},
+    ["Function"] = function(args,speaker)
+game:GetService("Workspace")["Black Ninja"].Model:Destroy()
+game:GetService("Workspace")["Default White"].Model:Destroy()
+game.Players.LocalPlayer.CharacterAdded:Connect(function(Character)
+wait()
+-- Gui to Lua
+-- Version: 3.2
+ 
+-- Instances:
+ 
+local plr_healthbar = Instance.new("ScreenGui")
+local frame_main = Instance.new("Frame")
+local frame_bar = Instance.new("Frame")
+local number_value = Instance.new("TextLabel")
+ 
+--Properties:
+ 
+plr_healthbar.Name = "plr_healthbar"
+plr_healthbar.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ 
+frame_main.Name = "frame_main"
+frame_main.Parent = plr_healthbar
+frame_main.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+frame_main.Draggable = true
+frame_main.Position = UDim2.new(0.5, -178687600, 0.12754412, -45)
+frame_main.Size = UDim2.new(0, 200, 0, 40)
+frame_main.Style = Enum.FrameStyle.DropShadow
+ 
+frame_bar.Name = "frame_bar"
+frame_bar.Parent = frame_main
+frame_bar.BackgroundColor3 = Color3.fromRGB(71, 255, 15)
+frame_bar.BackgroundTransparency = 0.500
+frame_bar.Size = UDim2.new(1, 0, 1, 0)
+ 
+number_value.Name = "number_value"
+number_value.Parent = frame_main
+number_value.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+number_value.BackgroundTransparency = 1.000
+number_value.Size = UDim2.new(1, 0, 1, 0)
+number_value.Font = Enum.Font.SourceSans
+number_value.Text = "Health: ---"
+number_value.TextColor3 = Color3.fromRGB(195, 195, 195)
+number_value.TextScaled = true
+number_value.TextSize = 14.000
+number_value.TextWrapped = true
+ 
+-- Scripts:
+ 
+local function AEROAY_fake_script() -- frame_bar.main_System
+    local script = Instance.new('LocalScript', frame_bar)
+ 
+    player = game.Players.LocalPlayer
+   
+    character = game.Workspace:WaitForChild(player.Name)
+    humanoid = character:WaitForChild("Humanoid")
+   
+    bar_transition = "Raw" -- alternative: "Raw"
+    value_style = "Normal" -- alternative: "Normal"
+   
+    --[[ Recommended / Optimal settings:
+        Transition: "Raw"
+        Value style: "Normal"
+        'Active': Unchecked
+    --]]
+   
+    --[[ Addtionally, you could also make the health bar draggable or non-draggable by heading over to frame_main
+        contained within the main screen GUI and unchecking / checking the option "Active".
+       
+        It is turned off by default, but if you wish to change it so the bar is draggable, just check it again.
+    --]]
+   
+    game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Health, false)
+    -- Change this value to true or erase this line of code if you want to display the ROBLOX health bar aswell (both at the same time).
+   
+    FullHP = Color3.fromRGB(71, 255, 15) --[[ RGB color code for the 80-100 HP region. If you can't find one, head to frame_bar and
+        under BackgroundColor3 mess around with colors
+        'till you find one that suits you.
+    --]]
+    HalfHP = Color3.fromRGB(255, 255, 30)-- RGB color code for the 80-50 HP region.
+    Injured = Color3.fromRGB(255, 171, 69)-- RGB color code for the 50-25 HP region.
+    SeverelyDamaged = Color3.fromRGB(193, 0, 0) -- RGB color code for the 25 HP - Death region.
+   
+    function bar_size(character, humanoid)
+        local humanoid_health = math.floor(humanoid.Health)
+        local humanoid_maxhealth = math.floor(humanoid.MaxHealth)
+        if bar_transition == "Smooth" then
+            script.Parent:TweenSize(UDim2.new(humanoid_health / humanoid_maxhealth, 0, 1, 0))
+            if humanoid_health <= humanoid_maxhealth and humanoid_health >= humanoid_maxhealth * 0.80 then
+                script.Parent.BackgroundColor3 = FullHP
+            end
+            if humanoid_health <= humanoid_maxhealth * 0.80 and humanoid_health >= humanoid_maxhealth * 0.50 then
+                script.Parent.BackgroundColor3 = HalfHP
+            end
+            if humanoid_health <= humanoid_maxhealth * 0.50 and humanoid_health >= humanoid_maxhealth * 0.25 then
+                script.Parent.BackgroundColor3 = Injured
+            end
+            if humanoid_health <= humanoid_maxhealth * 0.25 and humanoid_health >= 0 then
+                script.Parent.BackgroundColor3 = SeverelyDamaged
+            end
+        end
+        if bar_transition == "Raw" then
+            script.Parent.Size = UDim2.new(humanoid_health / humanoid_maxhealth, 0, 1, 0)
+            if humanoid_health <= humanoid_maxhealth and humanoid_health >= humanoid_maxhealth * 0.80 then
+                script.Parent.BackgroundColor3 = FullHP
+            end
+            if humanoid_health <= humanoid_maxhealth * 0.80 and humanoid_health >= humanoid_maxhealth * 0.50 then
+                script.Parent.BackgroundColor3 = HalfHP
+		local a = game:GetService("Workspace")["Default White"].Model.Equip.ClickDetector   
+fireclickdetector(a)
+wait(0.5)
+local b = game:GetService("Workspace")["Black Ninja"].Model.Equip.ClickDetector
+fireclickdetector(b)
+            end
+            if humanoid_health <= humanoid_maxhealth * 0.50 and humanoid_health >= humanoid_maxhealth * 0.25 then
+                script.Parent.BackgroundColor3 = Injured
+		local a = game:GetService("Workspace")["Default White"].Model.Equip.ClickDetector   
+fireclickdetector(a)
+wait(0.5)
+local b = game:GetService("Workspace")["Black Ninja"].Model.Equip.ClickDetector
+fireclickdetector(b)
+            end
+            if humanoid_health <= humanoid_maxhealth * 0.25 and humanoid_health >= 0 then
+                script.Parent.BackgroundColor3 = SeverelyDamaged
+		local a = game:GetService("Workspace")["Default White"].Model.Equip.ClickDetector   
+fireclickdetector(a)
+wait(0.5)
+local b = game:GetService("Workspace")["Black Ninja"].Model.Equip.ClickDetector
+fireclickdetector(b)
+            end
+        end
+    end
+   
+    function number_value(character, humanoid)
+        local humanoid_health = math.floor(humanoid.Health)
+        local humanoid_maxhealth = math.floor(humanoid.MaxHealth)
+        if value_style == "Normal" then
+            script.Parent.Parent.number_value.Text = 'Health: ' .. humanoid_health .. ' / ' .. humanoid_maxhealth
+        end
+        if value_style == "Percentage" then
+            if humanoid_health >= humanoid_maxhealth or humanoid_health < humanoid_maxhealth and humanoid_health > 0 then
+                local health_percentage = humanoid_health / humanoid_maxhealth * 100
+                script.Parent.Parent.number_value.Text = 'Health: ' .. health_percentage .. '%'
+            end
+            if humanoid_health <= 0 then
+                script.Parent.BackgroundTransparency = 1
+                script.Parent.Parent.number_value.Text = 'You have died!'
+local Event = game:GetService("ReplicatedStorage").Remotes.FixChar
+Event:FireServer()           
+ end
+        end
+    end
+   
+    humanoid.HealthChanged:connect(function()
+        bar_size(character, humanoid)
+        number_value(character, humanoid)
+    end)
+   
+    bar_size(character, humanoid)
+    number_value(character, humanoid)
+    -- These 2 lines of code are responsible for running the system when the player joins but his humanoid doesn't change yet.
+ 
+       
+    end
+coroutine.wrap(AEROAY_fake_script)()
+end)
+wait()
+local Event = game:GetService("ReplicatedStorage").Remotes.FixChar
+Event:FireServer()
+    end
+},
+		 ["stopreport"] = {	--Mass Report
+    ["ListName"] = "stopreport",
+    ["Description"] = "stops reporting",
+    ["Aliases"] = {"stopreport"},
+    ["Function"] = function(args,speaker)
+_G.Report = false
+    end
+},
+         ["pizzaadmin"] = {	--Work At A Pizza Place
+    ["ListName"] = "pizzaadmin",
+    ["Description"] = "opens up the work at a pizza place admin script",
+    ["Aliases"] = {"pizzaadmin"},
+    ["Function"] = function(args,speaker)
+    loadstring(game:HttpGet(("https://pastebin.com/raw/q817HYb9"),true))()
+    end
+},
+		 ["pizzafarm"] = {	--Work At A Pizza Place
+    ["ListName"] = "pizzafarm",
+    ["Description"] = "opens up the work at a pizza place autofarm script",
+    ["Aliases"] = {"pizzafarm"},
+    ["Function"] = function(args,speaker)
+    loadstring(game:HttpGet("https://pastebin.com/raw/cEwtwKZR",true))()
+    end
+},
+		 ["biblebot"] = {	--Bible Bot
+    ["ListName"] = "biblebot / bb",
+    ["Description"] = "biblebot",
+    ["Aliases"] = {"bb"},
+    ["Function"] = function(args,speaker)
+    loadstring(game:HttpGet("https://pastebin.com/raw/2Rsw2Azq"))();
+    end
+},
+		 ["get"] = {		--Ninja Sim MADE BY MASTERZED#5501
+    ["ListName"] = "get [katana, origin, frozen, bs, spirit]",
+    ["Description"] = "gives you a sword",
+    ["Aliases"] = {"get"},
+    ["Function"] = function(args,speaker)
+		if args[1] == "origin" then
+			local a = game:GetService("Workspace")["OriginBlade"].ClickDetector   
+			fireclickdetector(a)
+			elseif args[1] == "frozen" then
+			local a = game:GetService("Workspace")["Frozen Heart"].ClickDetector   
+			fireclickdetector(a)
+			elseif args[1] == "spirit" then
+			local a = game:GetService("Workspace")["Spirt Sword Giver"].ClickDetector   
+			fireclickdetector(a)
+			elseif args[1] == "katana" then
+			local a = game:GetService("Workspace")["Give Katana"].ClickDetector   
+			fireclickdetector(a)
+			elseif args[1] == "bs" then
+			local a = game:GetService("Workspace")["Give BS Katana"].ClickDetector   
+			fireclickdetector(a)
+		end
+    end
+},
+		 ["remotespy"] = {	--Renove Spy
+    ["ListName"] = "remotespy / remotes",
+    ["Description"] = "gives a remote spy gui",
+    ["Aliases"] = {"remotes"},
+    ["Function"] = function(args,speaker)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Nootchtai/FrostHook_Spy/master/Spy.lua"))()
+    end
+},
+		 ["autojump"] = {	--Auto Jump
+    ["ListName"] = "autojump",
+    ["Description"] = "makes you automaticly jump",
+    ["Aliases"] = {"autojump"},
+    ["Function"] = function(args,speaker)
+_G.Autojump = true
+while _G.Autojump == true do
+    wait(30)
+    game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+end
+    end
+},
+		 ["unautojump"] = { --Auto Jump
+    ["ListName"] = "unautojump",
+    ["Description"] = "stops jumping",
+    ["Aliases"] = {"unautojump"},
+    ["Function"] = function(args,speaker)
+_G.Autojump = false
+    end
+},
+		 ["physicgun"] = {	--Physics Gun
+    ["ListName"] = "physicgun",
+    ["Description"] = "stops jumping",
+    ["Aliases"] = {"physicgun"},
+    ["Function"] = function(args,speaker)
+loadstring(game:HttpGet(('https://pastebin.com/raw/6cfa5Wxa'),true))()
+    end
+},
+		 ["fastchi"] = {	--Ninja Sim
+    ["ListName"] = "fastchi",
+    ["Description"] = "40K per second OOOOO",
+    ["Aliases"] = {"fastchi"},
+    ["Function"] = function(args,speaker)
+local A_1 = game:GetService("Workspace")["先生"].Humanoid
+local A_2 = "punch"
+local Event = game:GetService("ReplicatedStorage").Remotes.Damage
+
+_G.Farm = true
+
+game:GetService('RunService').Stepped:connect(function()
+for i=1,8 do
+if _G.Farm == true then
+Event:InvokeServer(A_1, A_2)
+else
+end
+end
+end)
+local A_1 = game:GetService("Workspace")["先生"].Humanoid
+local A_2 = "punch"
+local Event = game:GetService("ReplicatedStorage").Remotes.Damage
+
+_G.Farm = true
+
+game:GetService('RunService').Stepped:connect(function()
+for i=1,8 do
+if _G.Farm == true then
+Event:InvokeServer(A_1, A_2)
+else
+end
+end
+end)
+local A_1 = game:GetService("Workspace")["先生"].Humanoid
+local A_2 = "punch"
+local Event = game:GetService("ReplicatedStorage").Remotes.Damage
+
+_G.Farm = true
+
+game:GetService('RunService').Stepped:connect(function()
+for i=1,8 do
+if _G.Farm == true then
+Event:InvokeServer(A_1, A_2)
+else
+end
+end
+end)
+local A_1 = game:GetService("Workspace")["先生"].Humanoid
+local A_2 = "punch"
+local Event = game:GetService("ReplicatedStorage").Remotes.Damage
+
+_G.Farm = true
+
+game:GetService('RunService').Stepped:connect(function()
+for i=1,8 do
+if _G.Farm == true then
+Event:InvokeServer(A_1, A_2)
+else
+end
+end
+end)
+local A_1 = game:GetService("Workspace")["先生"].Humanoid
+local A_2 = "punch"
+local Event = game:GetService("ReplicatedStorage").Remotes.Damage
+
+_G.Farm = true
+
+game:GetService('RunService').Stepped:connect(function()
+for i=1,8 do
+if _G.Farm == true then
+Event:InvokeServer(A_1, A_2)
+else
+end
+end
+end)
+local A_1 = game:GetService("Workspace")["先生"].Humanoid
+local A_2 = "punch"
+local Event = game:GetService("ReplicatedStorage").Remotes.Damage
+
+_G.Farm = true
+
+game:GetService('RunService').Stepped:connect(function()
+for i=1,8 do
+if _G.Farm == true then
+Event:InvokeServer(A_1, A_2)
+else
+end
+end
+end)
+local A_1 = game:GetService("Workspace")["先生"].Humanoid
+local A_2 = "punch"
+local Event = game:GetService("ReplicatedStorage").Remotes.Damage
+
+_G.Farm = true
+
+game:GetService('RunService').Stepped:connect(function()
+for i=1,8 do
+if _G.Farm == true then
+Event:InvokeServer(A_1, A_2)
+else
+end
+end
+end)
+local A_1 = game:GetService("Workspace")["先生"].Humanoid
+local A_2 = "punch"
+local Event = game:GetService("ReplicatedStorage").Remotes.Damage
+
+_G.Farm = true
+
+game:GetService('RunService').Stepped:connect(function()
+for i=1,8 do
+if _G.Farm == true then
+Event:InvokeServer(A_1, A_2)
+else
+end
+end
+end)
+local A_1 = game:GetService("Workspace")["先生"].Humanoid
+local A_2 = "punch"
+local Event = game:GetService("ReplicatedStorage").Remotes.Damage
+
+_G.Farm = true
+
+game:GetService('RunService').Stepped:connect(function()
+for i=1,8 do
+if _G.Farm == true then
+Event:InvokeServer(A_1, A_2)
+else
+end
+end
+end)
+local A_1 = game:GetService("Workspace")["先生"].Humanoid
+local A_2 = "punch"
+local Event = game:GetService("ReplicatedStorage").Remotes.Damage
+
+_G.Farm = true
+
+game:GetService('RunService').Stepped:connect(function()
+for i=1,8 do
+if _G.Farm == true then
+Event:InvokeServer(A_1, A_2)
+else
+end
+end
+end)
+
+wait(1)
+game:service("RunService").Stepped:connect(function()
+game.Players.LocalPlayer.Character.UpperTorso.CanCollide = false
+game.Players.LocalPlayer.Character.LowerTorso.CanCollide = false
+game.Players.LocalPlayer.Character.Head.CanCollide = false
+game.Players.LocalPlayer.Character.HumanoidRootPart.CanCollide = false
+end)
+
+while wait(60) do
+    _G.Farm = true
+wait(120)
+_G.Farm = false
+end
+    end
+},
+		 ["removehumanoid"] = { -- Removes Your Humanoid
+    ["ListName"] = "removehumanoid / rh",
+    ["Description"] = "deletes your humanoid",
+    ["Aliases"] = {"rh"},
+    ["Function"] = function(args,speaker)
+local char = game:GetService("Players").LocalPlayer.Character
+                char.Parent = game
+                char.HumanoidRootPart:Destroy()
+                char.Parent = workspace
+    end
+},
+		 ["fix"] = {		--Ninja Sim
+    ["ListName"] = "fix [number]",
+    ["Description"] = "fixes your charactor",
+    ["Aliases"] = {"fix"},
+    ["Function"] = function(args,speaker)
+   for i = 0,args[1] do
+local Event = game:GetService("ReplicatedStorage").Remotes.FixChar
+local Event = game:GetService("ReplicatedStorage").Remotes.FixChar
+local Event = game:GetService("ReplicatedStorage").Remotes.FixChar
+Event:FireServer()
+end
+    end
+},
+		 ["searchscript"] = { --Search A Script On The Web
+    ["ListName"] = "searchscript / ss",
+    ["Description"] = "Finds a scipt in the pastebin",
+    ["Aliases"] = {"ss"},
+    ["Function"] = function(args,speaker)
+function search(te)
+    pasteref = 'https://pastebin.com/%w+'
+    bingurl = game:HttpGet("https://www.bing.com/search?q="..game:GetService("HttpService"):UrlEncode(te),0)
+    thepaste = string.match(bingurl,pasteref)
+    if not thepaste then
+        return nil
+    end
+    pasteid = string.sub(thepaste,22,33)
+	final = game:HttpGet('https://pastebin.com/raw/'..pasteid,0)
+    return final
+end
+	loadstring(search(args[1]))()
+    end
+},
+         ["eject"] = {		--Iron Man Sim
+    ["ListName"] = "eject / ej",
+    ["Description"] = "ejects a player in a suit in ims",
+    ["Aliases"] = {"ej"},
+    ["Function"] = function(args,speaker)
+		local players = getPlayer(args[1], speaker)
+		for i,v in pairs(players) do
+		plrs = (Players[v].Name)
+			for i,v in pairs(game.Players:GetChildren()) do
+			if(v.ClassName == "Player") then
+					if v.Name == plrs then
+				if(v.Backpack:FindFirstChild("suitControl") ~= nil) then
+					v.Backpack.suitControl.Assets.Events.Eject:FireServer()
+				end
+			end
+		end
+	end
+	end
+	end
+},
+		 ["imkill"] = {		--Iron Man Sim
+    ["ListName"] = "imkill [player] [damage]",
+    ["Description"] = "ejects a player in a suit in ims",
+    ["Aliases"] = {"ironmankill"},
+    ["Function"] = function(args,speaker)
+		local players = getPlayer(args[1], speaker)
+		for i,v in pairs(players) do
+		plrs = (Players[v].Name)
+				for i,v in pairs(players) do
+		plrs = (Players[v].Name)
+			for i,v in pairs(game.Players:GetChildren()) do
+			if(v.ClassName == "Player") then
+					if v.Name == plrs then
+					if(v.Character:FindFirstChild("Suit")) then
+						for is,vs in pairs(v.Character.Suit:GetChildren()) do
+							if(vs:FindFirstChild("Union")) then
+								v.Backpack.suitControl.Assets.Events.punchHit:FireServer(vs.Union, args[2])
+								print(vs, v)
+							end
+						end
+					end
+				end
+			end
+			end
+			end
+			end
+	end
+
+},
+		 ["lockon"] = {		--Aim Bot
+    ["ListName"] = "lockon / aimbot [player]",
+    ["Description"] = "aimbot for games",
+    ["Aliases"] = {"aimbot","ab"},
+    ["Function"] = function(args,speaker)
+		local players = getPlayer(args[1], speaker)
+		for i,v in pairs(players) do
+		plrs = (Players[v].Name)
+_G.on = true
+name = plrs
+local plr = game.Players.LocalPlayer
+for i,v in pairs(game:GetService("Players"):GetChildren()) do
+if v.Character:FindFirstChild("HumanoidRootPart") and v.Name == name then
+local a = game:GetService('RunService').Stepped:connect(function()
+if _G.on == true then
+local pos = v.Character.HumanoidRootPart.Position
+workspace.CurrentCamera.CFrame = CFrame.new(workspace.CurrentCamera.CFrame.Position,pos)
+if v.Character.Humanoid.Health < 5 or _G.on == false then
+a:disconnect()
+end
+end
+end)
+end
+end
+end
+end
+
+},
+		 ["unlockon"] = {	--Aim Bot
+    ["ListName"] = "unlockon/ aimbotoff [player]",
+    ["Description"] = "aimbot off",
+    ["Aliases"] = {"aimbotoff", "unab"},
+    ["Function"] = function(args,speaker)
+_G.on = false
+a:disconnect()
+	end
+
+},
+		 ["imshoot"] = {	--Iron Man Sim
+    ["ListName"] = "imshoot [on/off]",
+    ["Description"] = "auto shoots, works best with lockon",
+    ["Aliases"] = {"nonononononononononononono"},
+    ["Function"] = function(args,speaker)
+	if args[1] == "on" then
+	_G.FIREEE = true
+	while _G.FIREEE == true do
+local N = game:GetService("VirtualInputManager")
+N:SendKeyEvent(true,"E",false,game)
+N:SendKeyEvent(false,"E",false,game)
+wait(0.25)
+N:SendKeyEvent(true,"Q",false,game)
+N:SendKeyEvent(false,"Q",false,game)
+wait(0.1)
+N:SendKeyEvent(true,"R",false,game)
+N:SendKeyEvent(false,"R",false,game)
+	end
+	elseif args[1] == "off" then
+	_G.FIREEE = false
+	end
+	end
+
+},
+		 ["rimshoot"] = {   --Iron Man Sim
+    ["ListName"] = "rimshoot [on/off]",
+    ["Description"] = "auto shoots, works best with lockon",
+    ["Aliases"] = {"nonononononononononononono"},
+    ["Function"] = function(args,speaker)
+	if args[1] == "on" then
+	_G.RFIREEE = true
+	while _G.RFIREEE == true do
+local N = game:GetService("VirtualInputManager")
+N:SendKeyEvent(true,"E",false,game)
+N:SendKeyEvent(true,"R",false,game)
+N:SendKeyEvent(true,"Q",false,game)
+wait(5)
+N:SendKeyEvent(false,"R",false,game)
+N:SendKeyEvent(false,"E",false,game)
+N:SendKeyEvent(false,"Q",false,game)
+	end
+	elseif args[1] == "off" then
+	_G.RFIREEE = false
+	end
+	end
+
+},
+		 ["admintroll"] = { --Cart Ride Into Minion For Admin
+    ["ListName"] = "admintroll",
+    ["Description"] = "copys the epic command into your clipboard",
+    ["Aliases"] = {"nonononononononononononono"},
+    ["Function"] = function(args,speaker)
+setclipboard("/e :repeat inf 0 :repeat inf 0  :repeat inf 0  :repeat inf 0  :repeat inf 0  :repeat inf 0  :repeat inf 0  :repeat inf 0  :repeat inf 0  :repeat inf 10 :")
+	end
+
+},
+		 ["adninjasim"] = { --Cart Ride Into Minion For Admin
+    ["ListName"] = "adninjasim",
+    ["Description"] = "copys the epic command into your clipboard",
+    ["Aliases"] = {"nonononononononononononono"},
+    ["Function"] = function(args,speaker)
+setclipboard("/e :repeat inf 0 :repeat inf 0  :repeat inf 0 :repeat inf 0  :repeat inf 0  :repeat inf 0  :repeat inf 0  :repeat inf 0  :repeat inf 0  :repeat inf 10 :place others 1025000417")
+	end
+
+},
+		 ["modsword"] = {	--Ninja Sim
+    ["ListName"] = "modsword [Swing Speed] [Knock Force] [Air Time]",
+    ["Description"] = "Mods your sword and makes it op",
+    ["Aliases"] = {"mods"},
+    ["Function"] = function(args,speaker)
+for i,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+    if v:IsA("BoolValue") then
+        if v.Name == "Katana" then
+            v.Parent.Configuration.Swing_Speed.Value = args[1]
+            v.Parent.Configuration.Knock_Force.Value = args[2]
+            v.Parent.Configuration.Air_Time.Value = args[3]
+        end
+    end
+end
+
+	end
+
+},
+		 ["heal"] = {		--Ninja Sim CREDITS FOR MASTERZED#5501 FOR GIVING ME THE IDEA
+    ["ListName"] = "heal [on/off] [number]",
+    ["Description"] = "Mods your sword and makes it op",
+    ["Aliases"] = {"afsdljkfdsaahfshljkasfkhjfhasd"},
+    ["Function"] = function(args,speaker)
+	if args[1] == true then
+_G.On = true
+_G.Heal = true
+WaitTime = args[2]
+while _G.On == true do
+    wait(WaitTime)
+    if _G.On == true then
+        if _G.Heal == true then
+            local string_1 = "soupprincess21gosubscribetojopedeifureadthis";
+            local Target = game:GetService("ReplicatedStorage").Remotes.DrinkSoup;
+            Target:InvokeServer(string_1);
+        end
+    end
+end
+		else
+		_G.On = false
+	end
+
+	end
+
+
+},
+		 ["steallevel"] = {	--Ninja Sim
+    ["ListName"] = "steallevel [plr]",
+    ["Description"] = "steals chi so u get it",
+    ["Aliases"] = {"afsdljkfdsaahfshljkasfkhjfhasd"},
+    ["Function"] = function(args,speaker)
+		_G.Steal = true
+		if _G.Steal == true then
+			local a = game:GetService('RunService').Stepped:connect(function()
+				local players = getPlayer(args[1], speaker)
+					for i,v in pairs(players) do
+					plrs = (Players[v].Name)
+					LocalPlayer = game.Players.LocalPlayer.Name
+						if plrs == LocalPlayer then
+						print(LocalPlayer, 'why would you want to kill yourself you dumb twat')
+						else
+							if plrs == LocalPlayer then
+							print(LocalPlayer, 'why would you want to kill yourself you dumb twat')
+							else
+								if plrs == LocalPlayer then
+								print(LocalPlayer, 'why would you want to kill yourself you dumb twat')
+								else
+									game.ReplicatedStorage.Remotes.Damage:InvokeServer(game.Workspace:FindFirstChild(plrs).Humanoid, "spirit")
+									print("stealing levels...")
+									if _G.Steal == false then
+									print("stopped")
+									pp:disconnect()
+									end
+								end
+							end
+						end
+					end
+				end)
+			end
+		end
+},
+		 ["unsteallevel"] = {	--Ninja Sim
+    ["ListName"] = "unsteallevel",
+    ["Description"] = "no u",
+    ["Aliases"] = {"afsdljkfdsaahfshljkasfkhjfhasd"},
+    ["Function"] = function(args,speaker)
+	_G.Steal = false
+end
+},
+		 ["fixreset"] = {	--Ninja Sim
+    ["ListName"] = "fixreset",
+    ["Description"] = "no u",
+    ["Aliases"] = {"afsdljkfdsaahfshljkasfkhjfhasd"},
+    ["Function"] = function(args,speaker)
+	_G.reeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee = true
+	while _G.reeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee == true do
+	wait(0.5)
+game.Players.LocalPlayer.Character.Humanoid.Health = 0
+wait()
+local Event = game:GetService("ReplicatedStorage").Remotes.FixChar
+Event:FireServer()
+end
+end
+},
+		 ["unfixreset"] = {	--Ninja Sim
+    ["ListName"] = "unfixreset",
+    ["Description"] = "no u",
+    ["Aliases"] = {"afsdljkfdsaahfshljkasfkhjfhasd"},
+    ["Function"] = function(args,speaker)
+	_G.reeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee = false
+end
+},
+		 ["fastnkill"] = {	--Ninja Sim
+    ["ListName"] = "fastnkill [plr]",
+    ["Description"] = "kills a player fast. useful with loops",
+    ["Aliases"] = {"afsdljkfdsaahfshljkasfkhjfhasd"},
+    ["Function"] = function(args,speaker)
+		local players = getPlayer(args[1], speaker)
+		for i,v in pairs(players) do
+		plrs = (Players[v].Name)
+		game.ReplicatedStorage.Remotes.Damage:InvokeServer(game.Workspace:FindFirstChild(plrs).Humanoid, "katana")
+		end
+end
+},
+		 ["muteflute"] = {	--Ninja Sim
+    ["ListName"] = "muteflute/mutef [plr]",
+    ["Description"] = "mutes the pesky flute for everybody",
+    ["Aliases"] = {"mutef"},
+    ["Function"] = function(args,speaker)
+		local players = getPlayer(args[1], speaker)
+		for i,v in pairs(players) do
+	_G.AudioMute = true
+	Playertopunish = (Players[v].Name)
+	while _G.AudioMute == true do
+		wait()
+	game.Workspace[Playertopunish].Flute.Handle.Sound.TimePosition = 0.0000000000001
+	end
+end
+end
+},
+		 ["killeffect"] = {	--Ninja Sim
+    ["ListName"] = "killeffect",
+    ["Description"] = "put this in onkilled and boom kill effects",
+    ["Aliases"] = {"afsdljkfdsaahfshljkasfkhjfhasd"},
+    ["Function"] = function(args,speaker)
+		local players = getPlayer(args[1], speaker)
+		for i,v in pairs(players) do
+		plrs = (Players[v].Name)
+		game.ReplicatedStorage.Remotes.Damage:InvokeServer(game.Workspace:FindFirstChild(plrs).Humanoid, "spirit")
+		game.ReplicatedStorage.Remotes.Damage:InvokeServer(game.Workspace:FindFirstChild(plrs).Humanoid, "frozen")
+				game.ReplicatedStorage.Remotes.Damage:InvokeServer(game.Workspace:FindFirstChild(plrs).Humanoid, "spirit")
+		game.ReplicatedStorage.Remotes.Damage:InvokeServer(game.Workspace:FindFirstChild(plrs).Humanoid, "frozen")
+				game.ReplicatedStorage.Remotes.Damage:InvokeServer(game.Workspace:FindFirstChild(plrs).Humanoid, "spirit")
+		game.ReplicatedStorage.Remotes.Damage:InvokeServer(game.Workspace:FindFirstChild(plrs).Humanoid, "frozen")
+				game.ReplicatedStorage.Remotes.Damage:InvokeServer(game.Workspace:FindFirstChild(plrs).Humanoid, "spirit")
+		game.ReplicatedStorage.Remotes.Damage:InvokeServer(game.Workspace:FindFirstChild(plrs).Humanoid, "frozen")
+				game.ReplicatedStorage.Remotes.Damage:InvokeServer(game.Workspace:FindFirstChild(plrs).Humanoid, "spirit")
+		game.ReplicatedStorage.Remotes.Damage:InvokeServer(game.Workspace:FindFirstChild(plrs).Humanoid, "frozen")
+				game.ReplicatedStorage.Remotes.Damage:InvokeServer(game.Workspace:FindFirstChild(plrs).Humanoid, "spirit")
+		game.ReplicatedStorage.Remotes.Damage:InvokeServer(game.Workspace:FindFirstChild(plrs).Humanoid, "frozen")
+				game.ReplicatedStorage.Remotes.Damage:InvokeServer(game.Workspace:FindFirstChild(plrs).Humanoid, "spirit")
+		game.ReplicatedStorage.Remotes.Damage:InvokeServer(game.Workspace:FindFirstChild(plrs).Humanoid, "frozen")
+				game.ReplicatedStorage.Remotes.Damage:InvokeServer(game.Workspace:FindFirstChild(plrs).Humanoid, "spirit")
+		game.ReplicatedStorage.Remotes.Damage:InvokeServer(game.Workspace:FindFirstChild(plrs).Humanoid, "frozen")
+				game.ReplicatedStorage.Remotes.Damage:InvokeServer(game.Workspace:FindFirstChild(plrs).Humanoid, "spirit")
+		game.ReplicatedStorage.Remotes.Damage:InvokeServer(game.Workspace:FindFirstChild(plrs).Humanoid, "frozen")
+				game.ReplicatedStorage.Remotes.Damage:InvokeServer(game.Workspace:FindFirstChild(plrs).Humanoid, "spirit")
+		game.ReplicatedStorage.Remotes.Damage:InvokeServer(game.Workspace:FindFirstChild(plrs).Humanoid, "frozen")
+				game.ReplicatedStorage.Remotes.Damage:InvokeServer(game.Workspace:FindFirstChild(plrs).Humanoid, "spirit")
+		game.ReplicatedStorage.Remotes.Damage:InvokeServer(game.Workspace:FindFirstChild(plrs).Humanoid, "frozen")
+		end
+end
+},
+		 ["permmute"] = {	--Ninja Sim
+    ["ListName"] = "permmute [plr]",
+    ["Description"] = "mutes the players audios",
+    ["Aliases"] = {"afsdljkfdsaahfshljkasfkhjfhasd"},
+    ["Function"] = function(args,speaker)
+player = args[1]
+_G.Mute = true
+while _G.Mute == true do
+wait(0.5)
+local a=game:GetService('Players').LocalPlayer;function GetPlayer(b)local c={}local d=b:lower()if d=="all"then for e,f in pairs(game:GetService("Players"):GetPlayers())do table.insert(c,f)end elseif d=="others"then for e,f in pairs(game:GetService("Players"):GetPlayers())do if f.Name~=a.Name then table.insert(c,f)end end elseif d=="me"then for e,f in pairs(game:GetService("Players"):GetPlayers())do if f.Name==a.Name then table.insert(c,f)end end else for e,f in pairs(game:GetService("Players"):GetPlayers())do if f.Name:lower():sub(1,#b)==b:lower()then table.insert(c,f)end end end;return c end;local g=unpack(GetPlayer(player)).Name;for h,i in pairs(game.Workspace[g]:GetDescendants())do if i:IsA("Sound")then wait()i.Playing=false;print(g)end end
+end
+end
+},
+		 ["unpermmute"] = {	--Ninja Sim
+    ["ListName"] = "unpermmute",
+    ["Description"] = "unmutes the players audio",
+    ["Aliases"] = {"afsdljkfdsaahfshljkasfkhjfhasd"},
+    ["Function"] = function(args,speaker)
+_G.Mute = false
+end
+},
+		 ["bmtkill"] = {	--Blood Moon Tycoon
+    ["ListName"] = "bmtkill [plr]",
+    ["Description"] = "murder!",
+    ["Aliases"] = {"afsdljkfdsaahfshljkasfkhjfhasd"},
+    ["Function"] = function(args,speaker)
+		local players = getPlayer(args[1], speaker)
+		for i,v in pairs(players) do
+		plrs = (Players[v].Name)
+playername = plrs
+
+
+local userdata_1 = game:GetService("Workspace")[playername].Humanoid;
+local number_1 = 20.980970144552;
+local Target = game:GetService("ReplicatedStorage").DamageEvent;
+Target:FireServer(userdata_1, number_1);
+
+end
+end
+},
+		 ["bmtkillzombie"] = {	--Blood Moon Tycoon
+    ["ListName"] = "bmtkillzombie / bmtkz",
+    ["Description"] = "kills all zombies",
+    ["Aliases"] = {"bmtkz"},
+    ["Function"] = function(args,speaker)
+for i,v in pairs(game.Workspace:GetDescendants()) do
+    wait()
+if v.Name == "Zombie" then
+    wait()
+local userdata_1 = v;
+local number_1 = 3424326347634824;
+local Target = game:GetService("ReplicatedStorage").DamageEvent;
+Target:FireServer(userdata_1, number_1);
+print(v)
+end
+end
+end
+},
+		 ["testie"] = {		--Ninja Sim
+    ["ListName"] = "testie",
+    ["Description"] = "obsolute",
+    ["Aliases"] = {"fb;jkbdsfgbjklglbjkgfbjlkgdfkbljdgsfhjkvsdfgj"},
+    ["Function"] = function(args,speaker)
+			local players = getPlayer(args[1], speaker)
+		for i,v in pairs(players) do
+		plrs = (Players[v].Name)
+execCmd("goto ",plrs) 
+end
+end
+},
+		 ["equiptool"] = {	--Equips Tool
+    ["ListName"] = "equiptool [TOOL NAME]",
+    ["Description"] = "equips the tool",
+    ["Aliases"] = {"fb;jkbdsfgbjklglbjkgfbjlkgdfkbljdgsfhjkvsdfgj"},
+    ["Function"] = function(args,speaker)
+local tool = (getstring(1))
+for _, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+    if v.Name == tool then
+v.Parent = game.Players.LocalPlayer.Character
+end
+end
+end
+},
+		 ["givetool"] = {	--Gives Tool
+    ["ListName"] = "givetool [plr] [tool]",
+    ["Description"] = "give your tool",
+    ["Aliases"] = {"fb;jkbdsfgbjklglbjkgfbjlkgdfkbljdgsfhjkvsdfgj"},
+    ["Function"] = function(args,speaker)
+  local players = getPlayer(args[1], speaker)
+  for i,v in pairs(players) do
+  player = (Players[v].Name)
+local Target = player
+local ToolName = (getstring(2))
+local Players = game:GetService("Players")
+local LP = Players.LocalPlayer
+local Tool = LP.Backpack[ToolName]
+local TargetChar = Players[Target].Character
+local LPChar = LP.Character
+
+local Humanoid = LPChar:FindFirstChildOfClass("Humanoid")
+local FakeHumanoid = Humanoid:Clone()
+wait()
+Humanoid:Destroy()
+FakeHumanoid.Name = "Humanoid"
+FakeHumanoid.Parent = LPChar
+wait()
+Tool.Parent = LPChar
+wait()
+LPChar.HumanoidRootPart.CFrame = TargetChar.HumanoidRootPart.CFrame
+
+end
+end
+},
+		 ["fixcounter"] = {	--Ninja Sim
+    ["ListName"] = "fixcounter",
+    ["Description"] = "give your tool",
+    ["Aliases"] = {"fb;jkbdsfgbjklglbjkgfbjlkgdfkbljdgsfhjkvsdfgj"},
+    ["Function"] = function(args,speaker)
+	if _G.EpiclyRan == true then
+	else
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local TextLabel = Instance.new("TextLabel")
+local TextLabel_2 = Instance.new("TextLabel")
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+
+TextLabel.Parent = ScreenGui
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.Position = UDim2.new(0, 0, 0.494248629, 0)
+TextLabel.Size = UDim2.new(0, 148, 0, 28)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "How many times you fixed"
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.TextSize = 15.000
+TextLabel.TextWrapped = true
+
+TextLabel_2.Parent = ScreenGui
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.Position = UDim2.new(0.125957444, 0, 0.494248629, 0)
+TextLabel_2.Size = UDim2.new(0, 72, 0, 28)
+TextLabel_2.Font = Enum.Font.SourceSans
+TextLabel_2.Text = "nil"
+TextLabel_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_2.TextScaled = true
+TextLabel_2.TextSize = 15.000
+TextLabel_2.TextWrapped = true
+
+-- Scripts:
+
+local function QLVXH_fake_script() -- TextLabel_2.LocalScript 
+	local script = Instance.new('LocalScript', TextLabel_2)
+
+	_G.TestBox = 0
+	while wait() do
+		script.Parent.Text = (_G.TestBox)
+		_G.EpiclyRan = true
+	end
+end
+coroutine.wrap(QLVXH_fake_script)()
+
+end
+end
+},
+	}
+}
+
+return Plugin
