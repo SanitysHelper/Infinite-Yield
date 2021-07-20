@@ -1,3 +1,11 @@
+--https://github.com/SanitysHelper/Infinite-Yield/blob/main/Plugins/testing.lua
+--https://raw.githubusercontent.com/SanitysHelper/Infinite-Yield/main/Plugins/testing.lua
+function loadgithub(file)
+	writefile("IY Plugins/"..file, game:HttpGet("https://raw.githubusercontent.com/SanitysHelper/Infinite-Yield/main/Plugins/"..file))
+end
+loadgithub("testing.iy")
+loadgithub("NinjaSimAdmin.iy")
+
 HttpService = game:GetService("HttpService")
 local added = 
 warn("Starting...")
