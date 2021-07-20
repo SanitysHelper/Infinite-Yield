@@ -1,0 +1,12 @@
+local Plugin = {
+function cool()
+	for i,v in pairs(listfiles("IY Plugins")) do
+		if not v:match("Loader.iy") then
+			execCmd("addplugin "..tostring(v), game.Players.LocalPlayer)
+		end
+	end
+end
+
+}
+
+return Plugin
