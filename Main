@@ -1,1 +1,44 @@
+HttpService = game:GetService("HttpService")
+local added = 
+warn("Starting...")
+function addplugin(plugin)
+-- 	print("attempting to add")
+	local text = readfile("IY_FE.iy")
+	local table1 = HttpService:JSONDecode(text)
+-- 	print(table.concat(table1["PluginsTable"],", "))
+	table.insert(table1["PluginsTable"], #table1["PluginsTable"], plugin)
+	local text2 = HttpService:JSONEncode(table1)
+	writefile("IY_FE.iy", text2)
+	print("[1] Added "..tostring(plugin))
+--	print(table.concat(table1["PluginsTable"],", "))
+end
+
+function readplugins()
+	local text = readfile("IY_FE.iy")
+	local table1 = HttpService:JSONDecode(text)
+	return table1["PluginsTable"] or {"NIL"}
+end
+
+if not isfolder("IY Plugins") then
+	makefolder("IY Plugins")
+	print("[1] made new folder")
+end
+
+if not isfolder("IY Plugins Trash") then
+	makefolder("IY Plugins")
+	print("[1] made new folder")
+end
+
+warn("[1] Loading plugins...")
+
+for i,v in pairs(listfiles("IY Plugins")) do
+	if not table.find(readplugins(), v) and v ~= "NIL" then
+		addplugin(v)
+	elseif v == "NIL" then
+		warn("[101] Null instance...")
+	else
+		warn("[1] Already Loaded", v)
+	end
+end
+warn("Loaded Plugins")
 loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
