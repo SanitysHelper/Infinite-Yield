@@ -27,7 +27,7 @@ function readplugins()
 		local table1 = HttpService:JSONDecode(text)
 		return table1["PluginsTable"] or {"NIL"}
 	else
-		return {"NIL"}
+		return "NIL"
 	end
 end
 
