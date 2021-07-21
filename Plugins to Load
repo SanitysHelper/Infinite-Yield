@@ -1,3 +1,8 @@
+function loadgithub(file)
+	writefile("IY Plugins/"..file, game:HttpGet("https://raw.githubusercontent.com/SanitysHelper/Infinite-Yield/main/Plugins/"..file))
+	warn("Downloaded "..file)
+end
+
 loadgithub("bobthehub.iy")
 loadgithub("NinjaSimAdmin.iy")
 loadgithub("PhysicgunV2.iy")
