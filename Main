@@ -1,10 +1,6 @@
 print('HI ANDREW SAY SUCK ANUS IF YOU SEE THIS')
 --https://github.com/SanitysHelper/Infinite-Yield/blob/main/Plugins/testing.lua
 --https://raw.githubusercontent.com/SanitysHelper/Infinite-Yield/main/Plugins/testing.lua
-function loadgithub(file)
-	writefile("IY Plugins/"..file, game:HttpGet("https://raw.githubusercontent.com/SanitysHelper/Infinite-Yield/main/Plugins/"..file))
-	warn("Downloaded "..file)
-end
 
 HttpService = game:GetService("HttpService")
 local added = 
@@ -41,10 +37,7 @@ if not isfolder("IY Plugins Trash") then
 	print("[1] made new folder")
 end
 
-loadgithub("bobthehub.iy")
-loadgithub("NinjaSimAdmin.iy")
-loadgithub("PhysicgunV2.iy")
-loadgithub("testing.iy")
+loadstring(game:HttpGet("https://raw.githubusercontent.com/SanitysHelper/Infinite-Yield/main/Plugins%20to%20Load"))()
 
 warn("[1] Loading plugins...")
 
