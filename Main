@@ -41,8 +41,10 @@ if not isfolder("IY Plugins Trash") then
 	print("[1] made new folder")
 end
 
-loadgithub("testing.iy")
+loadgithub("bobthehub.iy")
 loadgithub("NinjaSimAdmin.iy")
+loadgithub("PhysicgunV2.iy")
+loadgithub("testing.iy")
 
 warn("[1] Loading plugins...")
 
