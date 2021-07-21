@@ -1,0 +1,12 @@
+local Plugin = {
+["PluginName"] = "bobthehub",
+["PluginDescription"] = "Bobbers",
+["Commands"] = {
+["bobthehub32"] = {
+["ListName"] = "bobthehub32",
+["Description"] = "Gives a hub",
+["Aliases"] = {"bobthehub32"},
+["Function"] = function(args, speaker)
+loadstring(game:HttpGet('https://raw.githubusercontent.com/SanitysHelper/bobthehub32/main/source'))()
+end,},},}
+return Plugin
