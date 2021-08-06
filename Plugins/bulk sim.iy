@@ -1,0 +1,12 @@
+local Plugin = {
+["PluginName"] = "bulk sim",
+["PluginDescription"] = "stuff",
+["Commands"] = {
+["bulkcollect"] = {
+["ListName"] = "bulkcollect",
+["Description"] = "Automatic collection of gems and stuff",
+["Aliases"] = {"bulkcollect"},
+["Function"] = function(args, speaker)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/SanitysHelper/Scripts/main/Bulk%20Simulator"))()
+end,},},}
+return Plugin
