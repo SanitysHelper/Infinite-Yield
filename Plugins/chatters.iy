@@ -1,0 +1,12 @@
+local Plugin = {
+["PluginName"] = "chatters",
+["PluginDescription"] = "s",
+["Commands"] = {
+["funnychat"] = {
+["ListName"] = "funnychat",
+["Description"] = "Says random shit",
+["Aliases"] = {"funnychat"},
+["Function"] = function(args, speaker)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/SanitysHelper/funny-chat/main/main"),true)()
+end,},},}
+return Plugin
