@@ -1,0 +1,89 @@
+local Plugin = {
+["PluginName"] = "kills",
+["PluginDescription"] = "s",
+["Commands"] = {
+["hidkill"] = {
+["ListName"] = "hidkill",
+["Description"] = "s",
+["Aliases"] = {"hidkill"},
+["Function"] = function(args, speaker)
+local plr = game.Players.LocalPlayer
+      
+            local function godmode()
+                  local char = game.Players.LocalPlayer.Character
+                  local humanoid = char:WaitForChild("Humanoid")
+                  local humanoid2 = humanoid:Clone()
+                  char.Parent = nil
+                  humanoid.Parent = nil
+                  char.Parent = workspace
+                  char.Parent = nil
+                  humanoid2:Destroy()
+                  humanoid.Parent = char
+                  char.Parent = workspace
+            end
+      
+            local function equiptools()
+                  local tools = {}
+                  for i,v in pairs(plr.Backpack:GetChildren()) do
+                        if v:IsA("Tool") and v:FindFirstChild("Handle") then
+                              v.Parent = plr.Character
+                              tools[#tools+1] = v
+                        end
+                  end
+                  for i,v in pairs(plr.Character:GetChildren()) do
+                        if v:IsA("Tool") and v:FindFirstChild("Handle") then
+                              v.Parent = plr.Character
+                              tools[#tools+1] = v
+                        end
+                  end
+                  return tools, #tools
+            end
+      
+            local function to(player)
+                  local finished = false
+                  repeat
+                        local tools = equiptools()
+                        for i,v in pairs(tools) do
+                              v.Handle.Position = player.Character.HumanoidRootPart.Position
+                        end
+                        if #tools == 0 then
+                              finished = true
+                        end
+                        wait()
+                  until finished == true
+            end
+      
+            local function suicide()
+                  plr.Character.Humanoid.Health = 0
+                  plr.Character = nil
+            end
+      
+            local function kill(player)
+                  if game.Players:FindFirstChild(player) and plr.Backpack:FindFirstChildWhichIsA("Tool") or plr.Character and plr.Character:FindFirstChildWhichIsA("Tool") then
+                        local victim = game.Players[player]
+                        godmode()
+                        to(victim)
+                        wait()
+                        suicide()
+                        local currenttime = tick()
+                        repeat wait() until not victim or victim.Character.Humanoid.Health <= 0 or not victim.Character or tick() > currenttime + 2
+                        if not victim then
+                              print(""..player.." left")
+                        elseif victim.Character.Humanoid.Health <= 0 then
+                              print(""..player.." died")
+                        else
+                              print("respawned or didn't kill")
+                        end
+                  elseif not game.Players:FindFirstChild(player) then
+                        print("player doesn't exist idiot")
+                  elseif not plr.Character then
+                        print("thanoed")
+                  else
+                        print("you need a tool dumbass")
+                  end
+            end
+      for i,v in pairs(getPlayer(args[1], speaker)) do
+kill(v)
+end
+end,},},}
+return Plugin
