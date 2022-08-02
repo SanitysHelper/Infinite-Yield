@@ -2,7 +2,7 @@ repeat wait() until game:IsLoaded();
 
 -- // SETTINGS \\ --
 
-local SECRET_KEY = "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"; --https://beta.openai.com/account/api-keys
+local SECRET_KEY = "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"; --https://beta.openai.com/account/api-keys
 local CLOSE_RANGE_ONLY = true;
 
 _G.MESSAGE_SETTINGS = {
