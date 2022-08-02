@@ -2,7 +2,7 @@ repeat wait() until game:IsLoaded();
 
 -- // SETTINGS \\ --
 
-local SECRET_KEY = "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"
+local SECRET_KEY = "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"
 local CLOSE_RANGE_ONLY = true;
 
 _G.MESSAGE_SETTINGS = {
