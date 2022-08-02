@@ -2,7 +2,7 @@ repeat wait() until game:IsLoaded();
 
 -- // SETTINGS \\ --
 
-local SECRET_KEY = "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"
+local SECRET_KEY = "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"
 local CLOSE_RANGE_ONLY = true;
 
 _G.MESSAGE_SETTINGS = {
@@ -53,6 +53,8 @@ local function MakeRequest(Prompt)
 		});
 	});
 end
+
+testing = MakeRequest("Human: " .. "Do you work" .. "\n\nAI:")
 
 OnMessageDoneFiltering.OnClientEvent:Connect(function(Table)
 	local Message, Instance = Table.Message, Players:FindFirstChild(Table.FromSpeaker);
