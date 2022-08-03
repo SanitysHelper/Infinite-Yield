@@ -7,6 +7,6 @@ local Plugin = {
 ["Description"] = "Has a bot reply to almost all messages",
 ["Aliases"] = {"aichat"},
 ["Function"] = function(args, speaker)
-loadstring(game:HttpGet("https://raw.githubusercontent.com/SanitysHelper/Infinite-Yield/main/AiChat.lua"))()
+loadstring(game:HttpGet("https://pastebin.com/raw/jhrFM80a"))()
 end,},},}
 return Plugin
